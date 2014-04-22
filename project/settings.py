@@ -83,6 +83,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(SITE_DIR, 'media')
 
 
+from settings_db import *
+
+
 try:
     SECRET_KEY
 except NameError:
