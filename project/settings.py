@@ -74,6 +74,16 @@ STATIC_URL = '/static/'
 # /home/app/site/static
 STATIC_ROOT = os.path.join(SITE_DIR, 'static')
 
+STATICFILES_DIRS = (
+    # /home/app/site/base/static
+    os.path.join(BASE_DIR, 'static'),
+)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+)
+
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 
