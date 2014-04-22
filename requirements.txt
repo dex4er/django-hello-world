@@ -1,3 +1,5 @@
-MySQL-python
-Django >= 1.6, < 1.7
+pytz
+Django<1.7
 South
+Pillow
+MySQL-python

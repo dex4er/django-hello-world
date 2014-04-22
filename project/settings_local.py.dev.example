@@ -1,5 +1,26 @@
+# Settings for development
+
 DEBUG = True
 
 TEMPLATE_DEBUG = True
+
+EXTRA_BASE_APPS = (
+    'debug_toolbar',
+    'devserver',
+)
+
+DEVSERVER_MODULES = (
+    'devserver.modules.sql.SQLRealTimeModule',
+    'devserver.modules.sql.SQLSummaryModule',
+    'devserver.modules.profile.ProfileSummaryModule',
+
+    # Modules not enabled by default
+    # 'devserver.modules.ajax.AjaxDumpModule',
+    # 'devserver.modules.profile.MemoryUseModule',
+    # 'devserver.modules.cache.CacheSummaryModule',
+    # 'devserver.modules.profile.LineProfilerModule',
+)
+
+DEBUG_TOOLBAR_PATCH_SETTINGS = True
 
 ALLOWED_HOSTS = ['*']

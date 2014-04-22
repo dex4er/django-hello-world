@@ -1,0 +1,8 @@
+-r requirements.txt
+ipython
+guppy
+line_profiler>=1.0b3
+sqlparse
+werkzeug
+django-debug-toolbar
+git+https://github.com/dcramer/django-devserver#egg=django-devserver
