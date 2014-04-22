@@ -8,6 +8,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
+from settings_local import *
+
 import os
 
 # /home/app/site
@@ -23,17 +25,6 @@ from distutils.sysconfig import get_python_lib
 
 # /home/app/site/virtualenv
 PYTHON_LIB_DIR = get_python_lib()
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-TEMPLATE_DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -60,16 +51,6 @@ ROOT_URLCONF = 'project.urls'
 
 WSGI_APPLICATION = 'project.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
@@ -101,11 +82,6 @@ MEDIA_URL = '/media/'
 # /home/app/site/media
 MEDIA_ROOT = os.path.join(SITE_DIR, 'media')
 
-
-try:
-    from settings_local import *
-except ImportError:
-    pass
 
 try:
     SECRET_KEY

@@ -1,3 +1,4 @@
 *.pyc
-/settings_local.py
+/project/settings_db.py
+/project/settings_local.py
 /secret.txt
