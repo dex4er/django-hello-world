@@ -3,3 +3,5 @@ Django<1.7
 South
 Pillow
 MySQL-python
+django-model-utils
+django-extensions
