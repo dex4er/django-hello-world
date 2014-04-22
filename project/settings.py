@@ -41,10 +41,6 @@ BASE_APPS = (
     'django_extensions',
 )
 
-LOCAL_APPS = (
-    'apps.core',
-)
-
 INSTALLED_APPS = BASE_APPS + EXTRA_BASE_APPS + LOCAL_APPS
 
 MIDDLEWARE_CLASSES = (

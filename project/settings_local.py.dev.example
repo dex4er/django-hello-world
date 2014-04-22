@@ -9,6 +9,9 @@ EXTRA_BASE_APPS = (
     'devserver',
 )
 
+LOCAL_APPS = (
+)
+
 DEVSERVER_MODULES = (
     'devserver.modules.sql.SQLRealTimeModule',
     'devserver.modules.sql.SQLSummaryModule',
