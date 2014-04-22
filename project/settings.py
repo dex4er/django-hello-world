@@ -38,6 +38,27 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 )
 
+BASE_APPS = (
+    'grappelli',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'djcelery_email',
+    'south',
+    'model_utils',
+    'djrill',
+    'django_extensions',
+)
+
+LOCAL_APPS = (
+    'apps.core',
+)
+
+INSTALLED_APPS = BASE_APPS + EXTRA_BASE_APPS + LOCAL_APPS
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
