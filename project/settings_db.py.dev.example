@@ -1,4 +1,5 @@
 # Database for development
+# note: sqlite doesn't work with South
 
 DATABASES = {
     'default': {

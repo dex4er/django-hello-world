@@ -1,4 +1,8 @@
 *.pyc
+/project/secret.txt
 /project/settings_db.py
+/project/settings_dirs.py
+/project/settings_email.py
 /project/settings_local.py
-/secret.txt
+/project/settings_log.py
+/requirements.txt

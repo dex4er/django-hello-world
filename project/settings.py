@@ -9,18 +9,9 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
 from settings_local import *
+from settings_dirs import *
 
 import os
-
-# /home/app/site
-SITE_DIR = os.path.realpath(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
-
-# /home/app/site/base
-BASE_DIR = os.path.realpath(os.path.dirname(os.path.dirname(__file__)))
-
-# /home/app/site/base/project
-PROJECT_DIR = os.path.realpath(os.path.dirname(__file__))
-
 from distutils.sysconfig import get_python_lib
 
 # /home/app/site/virtualenv
@@ -99,12 +90,14 @@ MEDIA_ROOT = os.path.join(SITE_DIR, 'media')
 
 
 from settings_db import *
+from settings_log import *
+from settings_email import *
 
 
 try:
     SECRET_KEY
 except NameError:
-    SECRET_FILE = os.path.join(BASE_DIR, 'secret.txt')
+    SECRET_FILE = os.path.join(PROJECT_DIR, 'secret.txt')
     try:
         SECRET_KEY = open(SECRET_FILE).read().strip()
     except IOError:

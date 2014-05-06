@@ -1,5 +1,4 @@
--r requirements.txt
-ipython
+-r requirements.prd.txt
 guppy
 line_profiler>=1.0b3
 sqlparse
