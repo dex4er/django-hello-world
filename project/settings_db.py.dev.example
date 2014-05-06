@@ -1,5 +1,8 @@
 # Database for development
-# note: sqlite doesn't work with South
+# note: sqlite doesn't work correctly with South
+
+import os
+from settings_dirs import *
 
 DATABASES = {
     'default': {
