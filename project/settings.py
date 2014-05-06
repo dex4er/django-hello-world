@@ -10,6 +10,10 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 from settings_local import *
 from settings_dirs import *
+from settings_db import *
+from settings_email import *
+from settings_log import *
+
 
 import os
 from distutils.sysconfig import get_python_lib
@@ -87,11 +91,6 @@ MEDIA_URL = '/media/'
 
 # /home/app/site/media
 MEDIA_ROOT = os.path.join(SITE_DIR, 'media')
-
-
-from settings_db import *
-from settings_log import *
-from settings_email import *
 
 
 try:
