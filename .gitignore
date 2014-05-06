@@ -1,4 +1,5 @@
 *.pyc
+*.sqlite3
 /project/secret.txt
 /project/settings_db.py
 /project/settings_dirs.py
