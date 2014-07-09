@@ -34,7 +34,7 @@ BASE_APPS = (
     'south',
     'model_utils',
     'django_extensions',
-    'hello_world',
+    'hello_blog',
 )
 
 INSTALLED_APPS = BASE_APPS + EXTRA_BASE_APPS + LOCAL_APPS
