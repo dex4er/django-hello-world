@@ -10,9 +10,13 @@ body {font-family: arial;}
 
 <h1>{{ note.title }}</h1>
 
-<p>{{ note.content }}</p>
+<p>{{ note.user.first_name }} {{ note.user.last_name }}</p>
 
-<p style="font-style: italic">{{ note.date }}</p>
+<pre style="font-family: arial">{{ note.content }}</pre>
+
+<p>Date: <span style="font-style: italic">{{ note.date }}</span></p>
+
+<p>Keywords: <span style="font-style: italic">{{ note.keywords }}</span></p>
 
 </body>
 </html>
