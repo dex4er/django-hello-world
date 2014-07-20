@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from django.core import urlresolvers
+
 class Category(models.Model):
     name = models.CharField(max_length=100)
 
@@ -17,6 +19,9 @@ class Note(models.Model):
     title = models.CharField(max_length=200)
     date = models.DateTimeField()
     content = models.TextField(max_length=50000)
+
+    def get_absolute_url(self):
+        return urlresolvers.reverse('note', args=[self.pk])
 
     def __unicode__(self):
         return self.title

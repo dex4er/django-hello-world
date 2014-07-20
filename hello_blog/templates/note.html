@@ -1,22 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
+{% extends 'base.html' %}
 
-<head>
-<title>Note - {{ note.title }}</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{% block title %}{{ note.title }}{% endblock %}
 
-<style type="text/css">
-body {font-family: arial;}
-</style>
-
+{% block content %}
 <h1>{{ note.title }}</h1>
 
-<p>{{ note.user.first_name }} {{ note.user.last_name }}</p>
+<p>{{ note.user.get_full_name }}</p>
 
 <pre style="font-family: arial">{{ note.content }}</pre>
 
 <p>Date: <span style="font-style: italic">{{ note.date }}</span></p>
 
 <p>Keywords: <span style="font-style: italic">{{ note.keywords }}</span></p>
-
-</body>
-</html>
+{% endblock %}

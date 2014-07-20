@@ -5,3 +5,6 @@ Pillow
 MySQL-python
 django-model-utils
 django-extensions
+
+Whoosh
+django-haystack

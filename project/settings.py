@@ -34,6 +34,7 @@ BASE_APPS = (
     'south',
     'model_utils',
     'django_extensions',
+    'haystack',
     'hello_blog',
 )
 
@@ -56,9 +57,9 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pl'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Warsaw'
 
 USE_I18N = True
 
@@ -91,6 +92,17 @@ TEMPLATE_LOADERS = (
     # 'django.template.loaders.eggs.Loader',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+    'django.contrib.messages.context_processors.messages',
+    'django.core.context_processors.request',
+)
+
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
 )
@@ -102,6 +114,14 @@ MEDIA_URL = '/media/'
 
 # /home/app/site/media
 MEDIA_ROOT = os.path.join(SITE_DIR, 'media')
+
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(SITE_DIR, 'whoosh_index'),
+    },
+}
 
 
 SECRET_FILE = os.path.join(PROJECT_DIR, 'secret.txt')
