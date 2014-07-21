@@ -123,6 +123,8 @@ HAYSTACK_CONNECTIONS = {
     },
 }
 
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
 
 SECRET_FILE = os.path.join(PROJECT_DIR, 'secret.txt')
 try:
