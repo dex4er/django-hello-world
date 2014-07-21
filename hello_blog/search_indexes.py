@@ -1,4 +1,6 @@
 from haystack import indexes
+
+
 from hello_blog.models import Note
 
 class NoteIndex(indexes.SearchIndex, indexes.Indexable):
@@ -17,3 +19,21 @@ class NoteIndex(indexes.SearchIndex, indexes.Indexable):
 
     def get_updated_field(self):
         return 'date'
+
+
+from hello_blog.models import Category
+
+class CategoryIndex(indexes.SearchIndex, indexes.Indexable):
+    text = indexes.CharField(document=True, use_template=True, template_name='search/indexes/category.txt')
+
+    def get_model(self):
+        return Category
+
+
+from django.contrib.auth.models import User
+
+class UserIndex(indexes.SearchIndex, indexes.Indexable):
+    text = indexes.CharField(document=True, use_template=True, template_name='search/indexes/user.txt')
+
+    def get_model(self):
+        return User

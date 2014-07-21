@@ -2,6 +2,7 @@ from django.conf.urls import patterns, url
 
 from hello_blog import views
 from hello_blog.views import GetNoteView
+from hello_blog.forms import BlogSearchForm
 
 from haystack.forms import SearchForm
 from haystack.views import SearchView
@@ -13,6 +14,6 @@ urlpatterns = [
 
 urlpatterns += patterns('haystack.views',
     url(r'^search/', SearchView(
-        form_class=SearchForm,
+        form_class=BlogSearchForm,
     ), name='haystack_search'),
 )
