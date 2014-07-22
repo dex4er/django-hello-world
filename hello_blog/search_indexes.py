@@ -37,3 +37,9 @@ class UserIndex(indexes.SearchIndex, indexes.Indexable):
 
     def get_model(self):
         return User
+
+
+from whoosh.analysis.analyzers import StemmingAnalyzer
+
+def Analyzer():
+    return StemmingAnalyzer()

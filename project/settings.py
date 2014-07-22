@@ -120,6 +120,7 @@ HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
         'PATH': os.path.join(SITE_DIR, 'whoosh_index'),
+        'ANALYZER': 'hello_blog.search_indexes.Analyzer',
     },
 }
 

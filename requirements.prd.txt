@@ -7,4 +7,4 @@ django-model-utils
 django-extensions
 
 Whoosh
-django-haystack
+git+https://github.com/dex4er/django-haystack.git@feature_whoosh_analyzer
