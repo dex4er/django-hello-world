@@ -4,7 +4,6 @@ from hello_blog import views
 from hello_blog.views import GetNoteView
 from hello_blog.forms import BlogSearchForm
 
-from haystack.forms import SearchForm
 from haystack.views import SearchView
 
 urlpatterns = [
