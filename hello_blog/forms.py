@@ -7,7 +7,11 @@ class BlogSearchForm(HighlightedModelSearchForm):
     operator = forms.ChoiceField(choices=(('AND', 'AND'),('OR', 'OR'),))
 
     def search(self):
-        sqs = SearchQuerySet().filter(content=Raw(Clean((' %s ' % self.cleaned_data['operator']).join(self.cleaned_data['q'].split(' ')))))
+        if not hasattr(self, 'cleaned_data'):
+            return SearchQuerySet()
+        q = self.cleaned_data['q']
+        o = self.cleaned_data['operator']
+        sqs = SearchQuerySet().filter(content=Raw(Clean((' %s ' % o).join(q.split(' ')))))
         print(unicode(sqs.query))
         if self.cleaned_data['models']:
             sqs = sqs.models(*self.get_models())
