@@ -1,9 +1,0 @@
-pytz
-Django<1.7
-South
-Pillow
-MySQL-python
-django-model-utils
-django-extensions
-git+https://github.com/toastdriven/django-haystack.git
-git+https://github.com/dex4er/whoosh.git
