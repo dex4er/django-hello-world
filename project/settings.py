@@ -34,6 +34,7 @@ BASE_APPS = (
     'south',
     'model_utils',
     'django_extensions',
+    'django_pyc',
     'hello_world',
 )
 
