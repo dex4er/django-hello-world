@@ -1,5 +1,5 @@
 pytz
-Django<1.7
+Django
 South
 Pillow
 MySQL-python
