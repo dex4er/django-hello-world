@@ -25,6 +25,7 @@ PYTHON_LIB_DIR = get_python_lib()
 # Application definition
 
 BASE_APPS = (
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -113,6 +114,9 @@ MEDIA_URL = '/media/'
 # /home/app/site/media
 MEDIA_ROOT = os.path.join(SITE_DIR, 'media')
 
+# Django suit
+SUIT_CONFIG = {
+}
 
 SECRET_FILE = os.path.join(PROJECT_DIR, 'secret.txt')
 try:

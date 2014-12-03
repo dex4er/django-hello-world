@@ -5,3 +5,4 @@ Pillow
 MySQL-python
 django-model-utils
 django-extensions
+django-suite
