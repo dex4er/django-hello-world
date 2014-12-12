@@ -1,7 +1,4 @@
-pytz
-Django<1.7
-South
-Pillow
+Django
 MySQL-python
 django-model-utils
 django-extensions

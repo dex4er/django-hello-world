@@ -31,7 +31,6 @@ BASE_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'south',
     'model_utils',
     'django_extensions',
     'django_pyc',
