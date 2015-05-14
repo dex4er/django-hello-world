@@ -1,5 +1,6 @@
 Django
 MySQL-python
+PyYAML
 django-model-utils
 django-extensions
 django-pyc
