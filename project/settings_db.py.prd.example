@@ -11,7 +11,9 @@ DATABASES = {
         'OPTIONS': {
             'init_command': 'SET storage_engine=INNODB,character_set_connection=utf8,collation_connection=utf8_general_ci' # For mysql
         },
-        'TEST_CHARSET': "utf8", # For mysql
-        'TEST_COLLATION': "utf8_general_ci", # For mysql
+        'TEST': {
+            'CHARSET': "utf8", # For mysql
+            'COLLATION': "utf8_general_ci", # For mysql
+        },
     }
 }
