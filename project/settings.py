@@ -8,18 +8,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
-from settings_local import *
-from settings_dirs import *
-from settings_db import *
-from settings_email import *
-from settings_log import *
-
-
-import os
-from distutils.sysconfig import get_python_lib
-
-# /home/app/site/virtualenv
-PYTHON_LIB_DIR = get_python_lib()
+from settings_local import *  # @UnusedWildImport
+from settings_dirs import *  # @UnusedWildImport
+from settings_db import *  # @UnusedWildImport
+from settings_email import *  # @UnusedWildImport
+from settings_log import *  # @UnusedWildImport
+from settings_secret import *  # @UnusedWildImport
+from settings_suit import *  # @UnusedWildImport
 
 
 # Application definition
@@ -34,6 +29,7 @@ BASE_APPS = (
     'django.contrib.staticfiles',
     'model_utils',
     'django_extensions',
+    'django_pyc',
     'hello_blog',
 )
 
@@ -103,6 +99,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 TEMPLATE_DIRS = (
+    BASE_DIR + '/templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
 )
 
@@ -114,20 +111,5 @@ MEDIA_URL = '/media/'
 # /home/app/site/media
 MEDIA_ROOT = os.path.join(SITE_DIR, 'media')
 
-# Django suit
-SUIT_CONFIG = {
-}
-
-SECRET_FILE = os.path.join(PROJECT_DIR, 'secret.txt')
-try:
-    SECRET_KEY = open(SECRET_FILE).read().strip()
-except IOError:
-    try:
-        import random
-        SECRET_KEY = ''.join([random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)') for i in range(50)])
-        secret = file(SECRET_FILE, 'w')
-        secret.write(SECRET_KEY)
-        secret.close()
-    except IOError:
-        Exception('Please create a %s file with random characters \
-        to generate your secret key!' % SECRET_FILE)
+# Revproxy
+USE_X_FORWARDED_HOST = True

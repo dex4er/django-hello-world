@@ -7,3 +7,6 @@
 /project/settings_local.py
 /project/settings_log.py
 /requirements.txt
+/.project
+/.pydevproject
+/.settings

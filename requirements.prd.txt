@@ -1,8 +1,12 @@
-pytz
 Django
-South
-Pillow
+
 MySQL-python
+PyYAML
+
 django-model-utils
 django-extensions
-django-suite
+
+django-pyc
+
+django-suit
+# git+https://github.com/dex4er/django-suit-locale.git
