@@ -1,8 +1,8 @@
 # Database for development
-# note: sqlite doesn't work correctly with South
+# note: sqlite doesn't work with South
 
-import os
-from settings_dirs import *
+import os.path
+from settings_dirs import BASE_DIR
 
 DATABASES = {
     'default': {
@@ -10,4 +10,3 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
