@@ -4,3 +4,6 @@ PyYAML
 django-model-utils
 django-extensions
 django-pyc
+djangorestframework
+markdown
+django-filter

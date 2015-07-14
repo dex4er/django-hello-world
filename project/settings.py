@@ -28,6 +28,7 @@ BASE_APPS = (
     'model_utils',
     'django_extensions',
     'django_pyc',
+    'rest_framework',
     'hello_blog',
 )
 
