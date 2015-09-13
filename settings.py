@@ -8,12 +8,29 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
-from settings_local import *  # @UnusedWildImport
-from settings_dirs import *  # @UnusedWildImport
-from settings_db import *  # @UnusedWildImport
-from settings_email import *  # @UnusedWildImport
-from settings_log import *  # @UnusedWildImport
-from settings_secret import *  # @UnusedWildImport
+
+import os
+
+BASE_DIR = os.path.realpath(os.path.dirname(os.path.abspath(__file__)))
+
+SECRET_KEY = 'vzvfs$*x=m3mqb_75udu&jkis-#^cc3r-^7j(vc2gz0cof&q9)'
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+DEBUG = True
+
+TEMPLATE_DEBUG = True
+
+EXTRA_BASE_APPS = ()
+
+LOCAL_APPS = ()
+
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -42,15 +59,15 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'project.urls'
+ROOT_URLCONF = 'urls'
 
-WSGI_APPLICATION = 'project.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'pl'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'Europe/Warsaw'
 
@@ -66,14 +83,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# /home/app/site/static
-STATIC_ROOT = os.path.join(SITE_DIR, 'static')
-
-STATICFILES_DIRS = (
-    # /home/app/site/base/static
-    os.path.join(BASE_DIR, 'static'),
-)
-
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -84,30 +93,3 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
     # 'django.template.loaders.eggs.Loader',
 )
-
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'django.core.context_processors.tz',
-    'django.contrib.messages.context_processors.messages',
-    'django.core.context_processors.request',
-)
-
-TEMPLATE_DIRS = (
-    BASE_DIR + '/templates',
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-)
-
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash.
-
-MEDIA_URL = '/media/'
-
-# /home/app/site/media
-MEDIA_ROOT = os.path.join(SITE_DIR, 'media')
-
-# Revproxy
-USE_X_FORWARDED_HOST = True

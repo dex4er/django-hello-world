@@ -1,0 +1,202 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$vwsPApZQFvp8$aDgpHYHZKLe7G6UUd8OL4qKGPNsyzmanN/ZVcvO++XU=",
+    "last_login": "2015-09-12T14:01:28.886Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@local.host",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2014-07-17T07:06:24.652Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$12000$fVWo9eac4936$2TklrFwTmUECf6+7nxEug9TC+e/XDVDq4KeRxsHnyBM=",
+    "last_login": "2014-07-17T07:11:11.255Z",
+    "is_superuser": false,
+    "username": "ikrasicki",
+    "first_name": "Ignacy",
+    "last_name": "Krasicki",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2014-07-17T07:08:01Z",
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$12000$gO61Kwc64Tfz$V0yrdBsD6YqJoAViPEWfpnSuIAjGgs0PywSWzXDcRb4=",
+    "last_login": "2014-07-21T18:01:26Z",
+    "is_superuser": false,
+    "username": "jbrzechwa",
+    "first_name": "Jan",
+    "last_name": "Brzechwa",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2014-07-21T18:01:26Z",
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$12000$UF0gLB9Toz8i$St+MxF802Hk/vyWOOEs4u6WJPb9ozOeT8+Ehhbzk9Ng=",
+    "last_login": "2014-07-21T22:10:57Z",
+    "is_superuser": false,
+    "username": "jtuwim",
+    "first_name": "Julian",
+    "last_name": "Tuwim",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2014-07-21T22:10:57Z",
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "hello_blog.category",
+  "pk": 1,
+  "fields": {
+    "name": "bajki"
+  }
+},
+{
+  "model": "hello_blog.category",
+  "pk": 2,
+  "fields": {
+    "name": "wierszyki"
+  }
+},
+{
+  "model": "hello_blog.note",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "category": 1,
+    "keywords": "Bogactwo, Literat, M\u0142odo\u015b\u0107, Poeta, Polityka, Staro\u015b\u0107, W\u0142a\u01f3a, \u017bo\u0142nierz",
+    "title": "Wst\u0119p do bajek",
+    "date": "2014-07-17T09:22:45Z",
+    "content": "By\u0142 m\u0142ody, kt\u00f3ry \u017cycie wstrzemi\u0119\u017aliwie p\u0119\u01f3i\u0142;\r\nBy\u0142 stary, kt\u00f3ry nigdy nie \u0142aja\u0142, nie zrz\u0119\u01f3i\u0142;\r\nBy\u0142 bogacz, kt\u00f3ry zbior\u00f3w potrzebnym u\u01f3iela\u0142;\r\nBy\u0142 autor, co si\u0119 z cu\u01f3ej s\u0142awy rozwesela\u0142;\r\nBy\u0142 celnik, kt\u00f3ry nie krad\u0142; szewc, kt\u00f3ry nie p\u0133a\u0142;\r\n\u017bo\u0142nierz, co si\u0119 nie chwali\u0142; \u0142otr, co nie rozb\u0133a\u0142;\r\nBy\u0142 minister rzetelny, o sobie nie my\u015bla\u0142;\r\nBy\u0142 na koniec poeta, co nigdy nie zmy\u015bla\u0142.\r\n\u2014 A c\u00f3\u017c to jest za bajka? Wszystko to by\u0107 mo\u017ce!\r\n\u2014 Prawda, jednak\u017ce ja to mi\u0119\u01f3y bajki w\u0142o\u017c\u0119."
+  }
+},
+{
+  "model": "hello_blog.note",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "category": 1,
+    "keywords": "Los, Przem\u0133anie, Rozczarowanie",
+    "title": "Abuzei i Tair",
+    "date": "2014-07-20T18:51:52Z",
+    "content": "\u00abWinszuj, ojcze \u2014 rzek\u0142 Tair \u2014 w dobrym jestem stanie.\r\nJutrom szwagier su\u0142tana i na polowanie\r\nZ nim wyje\u017cd\u017cam\u00bb. Rzek\u0142 ojciec: \u00abWszystko to odmienne.\r\n\u0141aska pa\u0144ska, gust kobiet, pogody jesienne\u00bb.\r\nJako\u017c zgad\u0142, pi\u0119kny projekt wcale si\u0119 nie nada\u0142:\r\nSu\u0142tan siostr\u0119 odm\u00f3wi\u0142, ca\u0142y \u01f3ie\u0144 deszcz pada\u0142."
+  }
+},
+{
+  "model": "hello_blog.note",
+  "pk": 3,
+  "fields": {
+    "user": 2,
+    "category": 1,
+    "keywords": "Mieszczanin, Pieni\u0105\u01f3, Pozycja spo\u0142eczna, Szlachcic",
+    "title": "At\u0142as i kitaj",
+    "date": "2014-07-20T18:52:56Z",
+    "content": "At\u0142as w sklepie z kitaju \u017cartowa\u0142 do woli;\r\nKupi\u0142 at\u0142as pan s\u0119\u01f3ic, kitaj pan podstoli.\r\nA \u017ce trzeba pieni\u0119\u01f3y da\u0107 by\u0142o kupcowi,\r\nK\u0142ania\u0142 si\u0119 bar\u01f3o nisko at\u0142as kitajowi.\r\nGdy przysz\u0142o d\u0142ug zap\u0142aci\u0107, a d\u0142u\u017cnik si\u0119 wzbrania\u0142,\r\nCo rok si\u0119 potem kitaj at\u0142asowi k\u0142ania\u0142.\r\n"
+  }
+},
+{
+  "model": "hello_blog.note",
+  "pk": 4,
+  "fields": {
+    "user": 2,
+    "category": 1,
+    "keywords": "Pr\u00f3\u017cno\u015b\u0107, Los, Przemoc",
+    "title": "Baran dany na o\ufb01ar\u0119",
+    "date": "2014-07-20T18:54:01Z",
+    "content": "Wi\u01f3\u0105c, \u017ce wie\u0144ce k\u0142ad\u0105, \u017ce mu rogi z\u0142oc\u0105,\r\nPyszni\u0142 si\u0119 t\u0142usty baran, sam nie wie\u01f3ia\u0142 o co.\r\nA\u017c gdy postrzeg\u0142 oprawc\u0119, a ten powr\u00f3z bierze,\r\nAby go poniewolnie ci\u0105gn\u0105\u0142 ku o\ufb01erze,\r\nPozna\u0142 sw\u00f3j b\u0142\u0105d; rad nierad wype\u0142ni\u0142 los srogi.\r\nNie pomog\u0142y mu wie\u0144ce i z\u0142ocone rogi."
+  }
+},
+{
+  "model": "hello_blog.note",
+  "pk": 5,
+  "fields": {
+    "user": 3,
+    "category": 1,
+    "keywords": "Zoo, Tygrys",
+    "title": "Tygrys",
+    "date": "2014-07-21T18:01:43Z",
+    "content": "\"Co s\u0142ycha\u0107, panie tygrysie?\"\r\n\"A nic. Nudzi mi si\u0119.\"\r\n\"Czy chcia\u0142by pan wyj\u015b\u0107 zza tych krat?\"\r\n\"Pewnie. Przynajmniej bym pana zjad\u0142.\""
+  }
+},
+{
+  "model": "hello_blog.note",
+  "pk": 6,
+  "fields": {
+    "user": 3,
+    "category": 1,
+    "keywords": "Zoo, Lis",
+    "title": "Lis",
+    "date": "2014-07-21T18:02:35Z",
+    "content": "Rudy ojciec, rudy dziadek,\r\nRudy ogon - to m\u00f3j spadek,\r\nA ja jestem rudy lis.\r\nRuszaj st\u0105d, bo b\u0119d\u0119 gryz\u0142."
+  }
+},
+{
+  "model": "hello_blog.note",
+  "pk": 7,
+  "fields": {
+    "user": 2,
+    "category": 1,
+    "keywords": "Przyja\u017a\u0144, Sprawiedliwo\u015b\u0107, Fa\u0142sz",
+    "title": "Lis i osie\u0142",
+    "date": "2014-07-21T18:05:14Z",
+    "content": "Lis stary, wielki oszust, s\u0142awny swym rzemios\u0142em,\r\n\u017be nie mia\u0142 przyjaciela, narzeka\u0142 przed os\u0142em.\r\n\u00abSame\u015b sobie w tym winien \u2014 rzek\u0142 mu osie\u0142 na to \u2014\r\nJak\u0105\u015b sobie zgotowa\u0142, obchod\u017a si\u0119 zap\u0142at\u0105\u00bb.\r\nG\u0142upi ten, co wni\u015b\u0107 w przyja\u017a\u0144 z \u0142otrem si\u0119 o\u015bmiela:\r\nUmiej by\u0107 przyjacielem, znaj\u01f3iesz przyjaciela."
+  }
+},
+{
+  "model": "hello_blog.note",
+  "pk": 8,
+  "fields": {
+    "user": 4,
+    "category": 2,
+    "keywords": "Lokomotywa",
+    "title": "Lokomotywa",
+    "date": "2014-07-21T22:12:05Z",
+    "content": "Stoi na stacji lokomotywa,\r\nCi\u0119\u017cka, ogromna i pot z niej sp\u0142ywa:\r\nT\u0142usta oliwa.\r\nStoi i sapie, dyszy i dmucha,\r\n\u017bar z rozgrzanego jej brzucha bucha:\r\nUch - jak gor\u0105co!\r\nPuff - jak gor\u0105co!\r\nUff - jak gor\u0105co!\r\nWagony do niej podoczepiali\r\nWielkie i ci\u0119\u017ckie, z \u017celaza, stali,\r\nI pe\u0142no ludzi w ka\u017cdym wagonie,\r\nA w jednym krowy, a w drugim konie,\r\nA w trzecim siedz\u0105 same grubasy,\r\nSiedz\u0105 i jedz\u0105 t\u0142uste kie\u0142basy,\r\nA czwarty wagon pe\u0142en banan\u00f3w,\r\nA w pi\u0105tym stoi sze\u015b\u0107 fortepian\u00f3w,\r\nW sz\u00f3stym armata - o! jaka wielka!\r\nPod ka\u017cdym ko\u0142em \u017celazna belka!\r\nW si\u00f3dmym d\u0119bowe sto\u0142y i szafy,\r\nW \u00f3smym s\u0142o\u0144, nied\u017awied\u017a i dwie \u017cyrafy,\r\nW dziewi\u0105tym - same tuczone \u015bwinie,\r\nW dziesi\u0105tym - kufry, paki i skrzynie,\r\nA tych wagon\u00f3w jest ze czterdzie\u015bci,\r\nSam nie wiem, co si\u0119 w nich jeszcze mie\u015bci.\r\nLecz cho\u0107by przysz\u0142o tysi\u0105c atlet\u00f3w\r\nI ka\u017cdy zjad\u0142by tysi\u0105c kotlet\u00f3w,\r\nI ka\u017cdy nie wiem jak si\u0119 wyt\u0119\u017ca\u0142,\r\nTo nie ud\u017awign\u0105, taki to ci\u0119\u017car.\r\nNagle - gwizd!\r\nNagle - \u015bwist!\r\nPara - buch!\r\nKo\u0142a - w ruch!\r\nNajpierw -- powoli -- jak \u017c\u00f3\u0142w -- oci\u0119\u017cale,\r\nRuszy\u0142a -- maszyna -- po szynach -- ospale,\r\nSzarpn\u0119\u0142a wagony i ci\u0105gnie z mozo\u0142em,\r\nI kr\u0119ci si\u0119, kr\u0119ci si\u0119 ko\u0142o za ko\u0142em,\r\nI biegu przyspiesza, i gna coraz pr\u0119dzej,\r\nI dudni, i stuka, \u0142omoce i p\u0119dzi,\r\nA dok\u0105d? A dok\u0105d? A dok\u0105d? Na wprost!\r\nPo torze, po torze, po torze, przez most,\r\nPrzez g\u00f3ry, przez tunel, przez pola, przez las,\r\nI spieszy si\u0119, spieszy, by zd\u0105\u017cy\u0107 na czas,\r\nDo taktu turkoce i puka, i stuka to:\r\nTak to to, tak to to , tak to to, tak to to.\r\nG\u0142adko tak, lekko tak toczy si\u0119 w dal,\r\nJak gdyby to by\u0142a pi\u0142eczka, nie stal,\r\nNie ci\u0119\u017cka maszyna, zziajana, zdyszana,\r\nLecz fraszka, igraszka, zabawka blaszana.\r\nA sk\u0105d\u017ce to, jak\u017ce to, czemu tak gna?\r\nA co to to, co to to, kto to tak pcha,\r\n\u017be p\u0119dzi, \u017ce wali, \u017ce bucha buch, buch?\r\nTo para gor\u0105ca wprawi\u0142a to w ruch,\r\nTo para, co z kot\u0142a rurami do t\u0142ok\u00f3w,\r\nA t\u0142oki ko\u0142ami ruszaj\u0105 z dw\u00f3ch bok\u00f3w\r\nI gnaj\u0105, i pchaj\u0105, i poci\u0105g si\u0119 toczy,\r\nBo para te t\u0142oki wci\u0105\u017c t\u0142oczy i t\u0142oczy,\r\nI ko\u0142a turkoc\u0105, i puka, i stuka to:\r\nTak to to, tak to to, tak to to, tak to to!..."
+  }
+},
+{
+  "model": "hello_blog.note",
+  "pk": 9,
+  "fields": {
+    "user": 3,
+    "category": 2,
+    "keywords": "skar\u017cypyta",
+    "title": "Skar\u017cypyta",
+    "date": "2014-07-23T11:48:07Z",
+    "content": "\"Piotru\u015b nie by\u0142 dzisiaj w szkole,\r\nAntek zrobi\u0142 dziur\u0119 w stole,\r\nWanda obrus poplami\u0142a,\r\nZosia szyi nie umy\u0142a,\r\nJurek zgubi\u0142 klucz, a Wacek\r\nZjad\u0142 ze sto\u0142u ca\u0142y placek.\"\r\n\r\n\"Kt\u00f3\u017c si\u0119 ciebie o to pyta?\"\r\n\"Nikt. Ja jestem skar\u017cypyta.\""
+  }
+}
+]
