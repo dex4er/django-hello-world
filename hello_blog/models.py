@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Count, F
 from django.contrib.auth.models import User
 
 
@@ -24,7 +25,18 @@ class Note(models.Model):
         return self.title
 
 
+class UserNotesReportManager(models.Manager):
+    def get_queryset(self):
+        return Note.objects \
+            .annotate(user_username=F('user__username'), category_name=F('category__name')) \
+            .values('user_username', 'category_name') \
+            .order_by('user_username', 'category_name') \
+            .annotate(n=Count('*'))
+
+
 class UserNotesReport(models.Model):
-    user = models.CharField(max_length=30, primary_key=True)
-    category = models.CharField(max_length=100, primary_key=True)
+    user_username = models.CharField(max_length=30, primary_key=True)
+    category_name = models.CharField(max_length=100, primary_key=True)
     n = models.IntegerField()
+
+    objects = UserNotesReportManager()
