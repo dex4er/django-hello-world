@@ -27,7 +27,6 @@ BASE_APPS = (
     'django.contrib.staticfiles',
     'model_utils',
     'django_extensions',
-    'django_pyc',
     'hello_blog',
 )
 

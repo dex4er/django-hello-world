@@ -1,6 +1,8 @@
-Django
-MySQL-python
+Django < 1.9
+
+-r db.txt
+
 PyYAML
+
 django-model-utils
 django-extensions
-django-pyc
