@@ -8,12 +8,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
-from settings_local import *  # @UnusedWildImport
-from settings_dirs import *  # @UnusedWildImport
-from settings_db import *  # @UnusedWildImport
-from settings_email import *  # @UnusedWildImport
-from settings_log import *  # @UnusedWildImport
-from settings_secret import *  # @UnusedWildImport
+from settings_local import *  # NOQA
+from settings_dirs import *  # NOQA
+from settings_db import *  # NOQA
+from settings_email import *  # NOQA
+from settings_log import *  # NOQA
+from settings_secret import *  # NOQA
 
 
 # Application definition
