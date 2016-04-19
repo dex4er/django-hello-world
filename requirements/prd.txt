@@ -1,7 +1,5 @@
 Django < 1.9
 
--r db.txt
-
 PyYAML
 
 django-model-utils
