@@ -2,5 +2,6 @@ Django < 1.9
 
 PyYAML
 
+django-apptemplates
 django-model-utils
 django-extensions
