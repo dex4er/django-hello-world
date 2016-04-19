@@ -8,12 +8,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
-from settings_local import *  # NOQA
-from settings_dirs import *  # NOQA
-from settings_db import *  # NOQA
-from settings_email import *  # NOQA
-from settings_log import *  # NOQA
-from settings_secret import *  # NOQA
+from .settings_local import *  # NOQA
+from .settings_dirs import *  # NOQA
+from .settings_db import *  # NOQA
+from .settings_email import *  # NOQA
+from .settings_log import *  # NOQA
+from .settings_secret import *  # NOQA
 
 
 # Application definition
@@ -78,28 +78,36 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
 )
 
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-    'apptemplates.Loader',
-    # 'django.template.loaders.eggs.Loader',
-)
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'django.core.context_processors.tz',
-    'django.contrib.messages.context_processors.messages',
-    'django.core.context_processors.request',
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            BASE_DIR + '/templates',
+            # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+        ],
+        'OPTIONS': {
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
+            ],
+            'loaders': [
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+                'apptemplates.Loader',
+                # 'django.template.loaders.eggs.Loader',
+            ],
+            'debug': DEBUG
+        },
+    },
+]
 
-TEMPLATE_DIRS = (
-    BASE_DIR + '/templates',
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-)
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.

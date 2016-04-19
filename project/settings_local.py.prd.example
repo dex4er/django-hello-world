@@ -8,9 +8,6 @@ EXTRA_BASE_APPS = (
 LOCAL_APPS = (
 )
 
-TEMPLATE_DEBUG = False
-
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
 ALLOWED_HOSTS = ['*'] # change to host name
-

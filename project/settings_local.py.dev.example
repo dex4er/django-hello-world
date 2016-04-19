@@ -2,8 +2,6 @@
 
 DEBUG = True
 
-TEMPLATE_DEBUG = True
-
 EXTRA_BASE_APPS = (
     'debug_toolbar',
     'devserver',
