@@ -30,7 +30,7 @@ BASE_APPS = (
     'hello_world',
 )
 
-INSTALLED_APPS = BASE_APPS + EXTRA_BASE_APPS + LOCAL_APPS
+INSTALLED_APPS = EXTRA_BASE_APPS + BASE_APPS + LOCAL_APPS
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
