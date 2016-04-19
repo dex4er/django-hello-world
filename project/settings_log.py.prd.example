@@ -22,15 +22,15 @@ LOGGING = {
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
         },
-        'console':{
-            'level':'DEBUG',
-            'class':'logging.StreamHandler',
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
             'formatter': 'simple'
         },
     },
     'loggers': {
         'syslog_errors': {
-            'handlers': ['mail_admins','console'],
+            'handlers': ['mail_admins', 'console'],
             'level': 'ERROR',
             'propagate': False,
         },
@@ -39,7 +39,7 @@ LOGGING = {
             'level': 'INFO',
             'propagate': True,
         },
-        'syslog_debug':{
+        'syslog_debug': {
             'handlers': ['console'],
             'level': 'DEBUG',
             'propagate': True,
