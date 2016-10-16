@@ -1,8 +1,7 @@
-Django < 1.9
-
--r db.txt
+Django < 1.10
 
 PyYAML
 
+django-apptemplates
 django-model-utils
 django-extensions

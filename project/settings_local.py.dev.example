@@ -2,14 +2,19 @@
 
 DEBUG = True
 
-TEMPLATE_DEBUG = True
-
 EXTRA_BASE_APPS = (
     'debug_toolbar',
     'devserver',
 )
 
 LOCAL_APPS = (
+)
+
+EXTRA_MIDDLEWARE_CLASSES = (
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+)
+
+LOCAL_MIDDLEWARE_CLASSES = (
 )
 
 DEVSERVER_MODULES = (

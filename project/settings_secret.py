@@ -1,5 +1,5 @@
 import os.path
-from settings_dirs import PROJECT_DIR
+from .settings_dirs import PROJECT_DIR
 
 SECRET_FILE = os.path.join(PROJECT_DIR, 'secret.txt')
 

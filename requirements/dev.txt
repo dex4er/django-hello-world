@@ -1,8 +1,8 @@
 -r prd.txt
 
-guppy
+guppy ; python_version < '3.0'
 line_profiler >= 1.0b3
 sqlparse
 werkzeug
 django-debug-toolbar
-django-devserver
+git+https://github.com/dex4er/django-devserver-redux#egg=django-devserver-redux
