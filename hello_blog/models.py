@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Category(models.Model):
     name = models.CharField(max_length=100)
 
@@ -9,6 +10,7 @@ class Category(models.Model):
 
     def __unicode__(self):
         return self.name
+
 
 class Note(models.Model):
     user = models.ForeignKey(User)

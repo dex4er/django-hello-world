@@ -11,8 +11,8 @@ Environment
 
 .. code:: sh
 
-  virtualenv ../virtualenv
-  . ../virtualenv/bin/activate
+  virtualenv .virtualenv
+  . .virtualenv/bin/activate
   pip install -U pip setuptools
   pip install -r requirements.txt
 
@@ -68,4 +68,4 @@ Cloning of database
 
 .. code:: sh
 
-  ssh source-server pg_dump -Fc hello | pg_restore -c -U hello | psql -U hello photomontage
+  ssh source-server pg_dump -Fc hello | pg_restore -c -U hello | psql -U hello hello
