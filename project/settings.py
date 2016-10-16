@@ -32,7 +32,10 @@ BASE_APPS = (
 
 INSTALLED_APPS = EXTRA_BASE_APPS + BASE_APPS + LOCAL_APPS
 
-MIDDLEWARE_CLASSES = (
+
+# Middleware definition
+
+BASE_MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -40,6 +43,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+MIDDLEWARE_CLASSES = EXTRA_MIDDLEWARE_CLASSES + BASE_MIDDLEWARE_CLASSES + LOCAL_MIDDLEWARE_CLASSES
 
 ROOT_URLCONF = 'project.urls'
 
