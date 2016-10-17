@@ -15,6 +15,7 @@ EXTRA_MIDDLEWARE = [
 
 LOCAL_MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'devserver.middleware.DevServerMiddleware',
 ]
 
 DEVSERVER_MODULES = [
