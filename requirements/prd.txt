@@ -1,12 +1,10 @@
-Django
+Django < 1.10
 
-MySQL-python
 PyYAML
 
+django-apptemplates
 django-model-utils
 django-extensions
-
-django-pyc
 
 django-suit
 # git+https://github.com/dex4er/django-suit-locale.git

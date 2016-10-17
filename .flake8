@@ -1,0 +1,3 @@
+[flake8]
+exclude = .virtualenv
+max-line-length = 200

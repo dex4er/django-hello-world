@@ -8,13 +8,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
-from settings_local import *  # @UnusedWildImport
-from settings_dirs import *  # @UnusedWildImport
-from settings_db import *  # @UnusedWildImport
-from settings_email import *  # @UnusedWildImport
-from settings_log import *  # @UnusedWildImport
-from settings_secret import *  # @UnusedWildImport
-from settings_suit import *  # @UnusedWildImport
+from .settings_local import *  # NOQA
+from .settings_dirs import *  # NOQA
+from .settings_db import *  # NOQA
+from .settings_email import *  # NOQA
+from .settings_log import *  # NOQA
+from .settings_secret import *  # NOQA
+from .settings_suit import *  # NOQA
 
 
 # Application definition
@@ -29,13 +29,15 @@ BASE_APPS = (
     'django.contrib.staticfiles',
     'model_utils',
     'django_extensions',
-    'django_pyc',
     'hello_blog',
 )
 
-INSTALLED_APPS = BASE_APPS + EXTRA_BASE_APPS + LOCAL_APPS
+INSTALLED_APPS = EXTRA_APPS + BASE_APPS + LOCAL_APPS
 
-MIDDLEWARE_CLASSES = (
+
+# Middleware definition
+
+BASE_MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -43,6 +45,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+MIDDLEWARE_CLASSES = EXTRA_MIDDLEWARE + BASE_MIDDLEWARE + LOCAL_MIDDLEWARE
 
 ROOT_URLCONF = 'project.urls'
 
@@ -52,9 +56,9 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'pl'
+LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Europe/Warsaw'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -81,27 +85,35 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
 )
 
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-    # 'django.template.loaders.eggs.Loader',
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            BASE_DIR + '/templates',
+            # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+        ],
+        'OPTIONS': {
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
+            ],
+            'loaders': [
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+                'apptemplates.Loader',
+                # 'django.template.loaders.eggs.Loader',
+            ],
+            'debug': DEBUG
+        },
+    },
+]
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'django.core.context_processors.tz',
-    'django.contrib.messages.context_processors.messages',
-    'django.core.context_processors.request',
-)
-
-TEMPLATE_DIRS = (
-    BASE_DIR + '/templates',
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-)
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -110,6 +122,9 @@ MEDIA_URL = '/media/'
 
 # /home/app/site/media
 MEDIA_ROOT = os.path.join(SITE_DIR, 'media')
+
+# Internal IP addresses for DEBUG mode
+INTERNAL_IPS = ['127.0.0.1', '::1']
 
 # Revproxy
 USE_X_FORWARDED_HOST = True
