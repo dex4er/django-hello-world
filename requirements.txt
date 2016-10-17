@@ -1,1 +1,2 @@
-Django
+-r requirements/dev.txt
+# -r requirements/db.txt

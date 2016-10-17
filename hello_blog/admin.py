@@ -3,10 +3,12 @@ from django.contrib import admin
 import hello_blog.models as models
 
 
+
 class CategoryAdmin(admin.ModelAdmin):
     pass
 
 admin.site.register(models.Category, CategoryAdmin)
+
 
 
 class NoteAdmin(admin.ModelAdmin):

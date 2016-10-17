@@ -1,0 +1,7 @@
+Django < 1.10
+
+PyYAML
+
+django-apptemplates
+django-model-utils
+django-extensions

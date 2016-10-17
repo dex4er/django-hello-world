@@ -1,0 +1,19 @@
+# Settings for production
+
+DEBUG = False
+
+EXTRA_BASE_APPS = (
+)
+
+LOCAL_APPS = (
+)
+
+EXTRA_MIDDLEWARE_CLASSES = (
+)
+
+LOCAL_MIDDLEWARE_CLASSES = (
+)
+
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
+
+ALLOWED_HOSTS = ['*'] # change to host name

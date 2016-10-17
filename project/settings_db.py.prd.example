@@ -1,0 +1,17 @@
+# Database for production
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',  # 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'hello',
+        'USER': 'hello',
+        'PASSWORD': 'hello',
+        'HOST': '',  # Set to empty string for localhost.
+        'PORT': '',  # Set to empty string for default.
+        'OPTIONS': {
+            # 'init_command': 'SET storage_engine=INNODB,character_set_connection=utf8,collation_connection=utf8_general_ci' # For mysql
+        },
+        # 'TEST_CHARSET': "utf8", # For mysql
+        # 'TEST_COLLATION': "utf8_general_ci", # For mysql
+    }
+}
