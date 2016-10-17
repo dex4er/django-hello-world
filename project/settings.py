@@ -30,12 +30,12 @@ BASE_APPS = (
     'hello_blog',
 )
 
-INSTALLED_APPS = EXTRA_BASE_APPS + BASE_APPS + LOCAL_APPS
+INSTALLED_APPS = EXTRA_APPS + BASE_APPS + LOCAL_APPS
 
 
 # Middleware definition
 
-BASE_MIDDLEWARE_CLASSES = (
+BASE_MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -44,7 +44,7 @@ BASE_MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-MIDDLEWARE_CLASSES = EXTRA_MIDDLEWARE_CLASSES + BASE_MIDDLEWARE_CLASSES + LOCAL_MIDDLEWARE_CLASSES
+MIDDLEWARE_CLASSES = EXTRA_MIDDLEWARE + BASE_MIDDLEWARE + LOCAL_MIDDLEWARE
 
 ROOT_URLCONF = 'project.urls'
 
@@ -120,6 +120,9 @@ MEDIA_URL = '/media/'
 
 # /home/app/site/media
 MEDIA_ROOT = os.path.join(SITE_DIR, 'media')
+
+# Internal IP addresses for DEBUG mode
+INTERNAL_IPS = ['127.0.0.1', '::1']
 
 # Revproxy
 USE_X_FORWARDED_HOST = True
