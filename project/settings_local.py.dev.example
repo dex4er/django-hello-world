@@ -2,22 +2,22 @@
 
 DEBUG = True
 
-EXTRA_APPS = (
-)
+EXTRA_APPS = [
+]
 
-LOCAL_APPS = (
+LOCAL_APPS = [
     'debug_toolbar',
     'devserver',
-)
+]
 
-EXTRA_MIDDLEWARE = (
-)
+EXTRA_MIDDLEWARE = [
+]
 
-LOCAL_MIDDLEWARE = (
+LOCAL_MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
-)
+]
 
-DEVSERVER_MODULES = (
+DEVSERVER_MODULES = [
     'devserver.modules.sql.SQLSummaryModule',
     'devserver.modules.profile.ProfileSummaryModule',
 
@@ -27,7 +27,7 @@ DEVSERVER_MODULES = (
     # 'devserver.modules.profile.MemoryUseModule',
     # 'devserver.modules.cache.CacheSummaryModule',
     # 'devserver.modules.profile.LineProfilerModule',
-)
+]
 
 DEBUG_TOOLBAR_PATCH_SETTINGS = True
 
