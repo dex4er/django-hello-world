@@ -9,7 +9,7 @@ except IOError:
     try:
         import random
         SECRET_KEY = ''.join([random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)') for i in range(50)])
-        secret = file(SECRET_FILE, 'w')
+        secret = open(SECRET_FILE, 'w')
         secret.write(SECRET_KEY)
         secret.close()
     except IOError:
