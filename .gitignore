@@ -9,4 +9,4 @@
 /.project
 /.pydevproject
 /.settings
-/.virtualenv
+/.virtualenv*

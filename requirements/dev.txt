@@ -5,4 +5,4 @@ line_profiler >= 1.0b3
 sqlparse
 werkzeug
 django-debug-toolbar
-git+https://github.com/dex4er/django-devserver-redux#egg=django-devserver-redux
+git+https://github.com/ulule/django-devserver#egg=django-devserver
