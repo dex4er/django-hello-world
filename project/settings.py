@@ -122,5 +122,8 @@ MEDIA_URL = '/media/'
 # /home/app/site/media
 MEDIA_ROOT = os.path.join(SITE_DIR, 'media')
 
+# Internal IP addresses for DEBUG mode
+INTERNAL_IPS = ['127.0.0.1', '::1']
+
 # Revproxy
 USE_X_FORWARDED_HOST = True
