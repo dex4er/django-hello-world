@@ -11,8 +11,8 @@ Environment
 
 .. code:: sh
 
-  virtualenv ../virtualenv
-  . ../virtualenv/bin/activate
+  virtualenv .virtualenv
+  . .virtualenv/bin/activate
   pip install -U pip setuptools
   pip install -r requirements.txt
 
@@ -68,4 +68,27 @@ Cloning of database
 
 .. code:: sh
 
-  ssh source-server pg_dump -Fc hello | pg_restore -c -U hello | psql -U hello photomontage
+  ssh source-server pg_dump -Fc hello | pg_restore -c -U hello | psql -U hello hello
+
+Variants
+^^^^^^^^
+
+The template provides different variants as separate branch:
+
+master
+  Basic template
+
+blog
+  Simple application with model, view and admin
+
+blog_suite
+  Django Suit admin interface
+
+blog_rest
+  Additional REST service
+
+blog_search
+  Full text search with Haystack + Whoosh
+
+blog_reports
+  QuerySet with Django Admin view
