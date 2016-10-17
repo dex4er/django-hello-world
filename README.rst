@@ -71,7 +71,7 @@ Cloning of database
   ssh source-server pg_dump -Fc hello | pg_restore -c -U hello | psql -U hello hello
 
 Variants
-^^^^^^^^
+--------
 
 The template provides different variants as separate branch:
 
