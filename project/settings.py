@@ -2,10 +2,10 @@
 Django settings for project project.
 
 For more information on this file, see
-https://docs.djangoproject.com/en/1.6/topics/settings/
+https://docs.djangoproject.com/en/1.10/topics/settings/
 
 For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.6/ref/settings/
+https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 from .settings_local import *  # NOQA
@@ -16,9 +16,15 @@ from .settings_log import *  # NOQA
 from .settings_secret import *  # NOQA
 
 
-# Application definition
+ROOT_URLCONF = 'project.urls'
 
-BASE_APPS = (
+WSGI_APPLICATION = 'project.wsgi.application'
+
+
+# Application definition
+# https://docs.djangoproject.com/en/1.10/ref/applications/
+
+BASE_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -28,31 +34,29 @@ BASE_APPS = (
     'model_utils',
     'django_extensions',
     'hello_world',
-)
+]
 
 INSTALLED_APPS = EXTRA_APPS + BASE_APPS + LOCAL_APPS
 
 
 # Middleware definition
+# https://docs.djangoproject.com/en/1.10/topics/http/middleware/
 
-BASE_MIDDLEWARE = (
+BASE_MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-)
+]
 
 MIDDLEWARE_CLASSES = EXTRA_MIDDLEWARE + BASE_MIDDLEWARE + LOCAL_MIDDLEWARE
 
-ROOT_URLCONF = 'project.urls'
-
-WSGI_APPLICATION = 'project.wsgi.application'
-
 
 # Internationalization
-# https://docs.djangoproject.com/en/1.6/topics/i18n/
+# https://docs.djangoproject.com/en/1.10/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -66,23 +70,22 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.6/howto/static-files/
+# https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
 
 # /home/app/site/static
 STATIC_ROOT = os.path.join(SITE_DIR, 'static')
 
-STATICFILES_DIRS = (
+STATICFILES_DIRS = [
     # /home/app/site/base/static
     os.path.join(BASE_DIR, 'static'),
-)
+]
 
-STATICFILES_FINDERS = (
+STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.FileSystemFinder',
-)
-
+]
 
 TEMPLATES = [
     {
@@ -116,11 +119,13 @@ TEMPLATES = [
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
+# https://docs.djangoproject.com/en/1.10/topics/files/
 
 MEDIA_URL = '/media/'
 
 # /home/app/site/media
 MEDIA_ROOT = os.path.join(SITE_DIR, 'media')
+
 
 # Internal IP addresses for DEBUG mode
 INTERNAL_IPS = ['127.0.0.1', '::1']
