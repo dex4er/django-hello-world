@@ -1,15 +1,15 @@
 from django.contrib import admin
 
-from hello_blog.models import Category, Note
+import hello_blog.models
 
 
 class CategoryAdmin(admin.ModelAdmin):
     pass
 
-admin.site.register(Category, CategoryAdmin)
+admin.site.register(hello_blog.models.Category, CategoryAdmin)
 
 
 class NoteAdmin(admin.ModelAdmin):
     pass
 
-admin.site.register(Note, NoteAdmin)
+admin.site.register(hello_blog.models.Note, NoteAdmin)

@@ -1,9 +1,8 @@
 from django.conf.urls import url
 
-from hello_blog import views
-from hello_blog.views import GetNoteView
+import hello_blog.views
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
-    url(r'^note/(?P<id>\d+)$', GetNoteView.as_view(), name='note'),
+    url(r'^$', hello_blog.views.index, name='index'),
+    url(r'^note/(?P<id>\d+)$', hello_blog.views.GetNoteView.as_view(), name='note'),
 ]
