@@ -1,15 +1,15 @@
-from django.views.generic.base import View
+from django import views
 from django.shortcuts import render
 
-from hello_blog.models import Note
+import hello_blog.models
 
 
 def index(request):
-    notes = Note.objects.all()
-    return render(request, "index.html", {'notes': notes})
+    notes = hello_blog.models.Note.objects.all()
+    return render(request, 'index.html', {'notes': notes})
 
 
-class GetNoteView(View):
+class GetNoteView(views.generic.base.View):
     def get(self, request, *args, **kwargs):
-        note = Note.objects.get(id=kwargs['id'])
-        return render(request, "note.html", {'note': note})
+        note = hello_blog.models.Note.objects.get(id=kwargs['id'])
+        return render(request, 'note.html', {'note': note})
