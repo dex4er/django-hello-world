@@ -6,6 +6,7 @@ admin.autodiscover()
 
 urlpatterns = [
     url(r'^', include('hello_blog.urls')),
+    url(r'^jet/', include('jet.urls', 'jet')),
     url(r'^admin/', include(admin.site.urls)),
 ]
 

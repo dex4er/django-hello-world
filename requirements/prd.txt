@@ -5,3 +5,5 @@ PyYAML
 django-apptemplates
 django-model-utils
 django-extensions
+
+django-jet
