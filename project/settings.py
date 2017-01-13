@@ -24,6 +24,10 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Application definition
 # https://docs.djangoproject.com/en/1.10/ref/applications/
 
+PROJECT_APPS = [
+    'hello_blog'
+]
+
 BASE_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -33,10 +37,9 @@ BASE_APPS = [
     'django.contrib.staticfiles',
     'model_utils',
     'django_extensions',
-    'hello_blog',
 ]
 
-INSTALLED_APPS = EXTRA_APPS + BASE_APPS + LOCAL_APPS
+INSTALLED_APPS = EXTRA_APPS + BASE_APPS + PROJECT_APPS + LOCAL_APPS
 
 
 # Middleware definition

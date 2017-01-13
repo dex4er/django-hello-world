@@ -29,7 +29,7 @@ Running
 .. code:: sh
 
   ./manage.py migrate
-  ./manage.py runserver
+  ./manage.py runserver_plus
 
 PostgreSQL
 ----------
@@ -83,6 +83,9 @@ blog
 
 blog_suite
   Django Suit admin interface
+
+blog_jet
+  Django Jet admin interface
 
 blog_rest
   Additional REST service
