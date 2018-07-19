@@ -1,12 +1,15 @@
 *.pyc
 *.sqlite3
+.DS_Store
 /project/secret.txt
 /project/settings_db.py
 /project/settings_dirs.py
 /project/settings_email.py
 /project/settings_local.py
 /project/settings_log.py
-/requirements.txt
+/.mypy_cache
 /.project
 /.pydevproject
 /.settings
+/.virtualenv*
+/.vscode

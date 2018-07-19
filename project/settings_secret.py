@@ -1,5 +1,5 @@
 import os.path
-from settings_dirs import PROJECT_DIR
+from .settings_dirs import PROJECT_DIR
 
 SECRET_FILE = os.path.join(PROJECT_DIR, 'secret.txt')
 
@@ -9,7 +9,7 @@ except IOError:
     try:
         import random
         SECRET_KEY = ''.join([random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)') for i in range(50)])
-        secret = file(SECRET_FILE, 'w')
+        secret = open(SECRET_FILE, 'w')
         secret.write(SECRET_KEY)
         secret.close()
     except IOError:

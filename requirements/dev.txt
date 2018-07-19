@@ -1,0 +1,5 @@
+-r prd.txt
+
+sqlparse
+werkzeug
+django-debug-toolbar

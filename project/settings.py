@@ -2,23 +2,35 @@
 Django settings for project project.
 
 For more information on this file, see
-https://docs.djangoproject.com/en/1.6/topics/settings/
+https://docs.djangoproject.com/en/1.10/topics/settings/
 
 For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.6/ref/settings/
+https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
-from settings_local import *  # @UnusedWildImport
-from settings_dirs import *  # @UnusedWildImport
-from settings_db import *  # @UnusedWildImport
-from settings_email import *  # @UnusedWildImport
-from settings_log import *  # @UnusedWildImport
-from settings_secret import *  # @UnusedWildImport
+from .settings_local import ALLOWED_HOSTS, DEBUG, DEBUG_TOOLBAR_PATCH_SETTINGS, EXTRA_BASE_APPS, EXTRA_MIDDLEWARE, LOCAL_APPS, LOCAL_MIDDLEWARE  # NOQA
+from .settings_dirs import BASE_DIR, PROJECT_DIR, PROJECT_DIRNAME, SITE_DIR  # NOQA
+from .settings_db import DATABASES  # NOQA
+from .settings_email import EMAIL_BACKEND, EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_PORT, EMAIL_USE_TLS  # NOQA
+from .settings_log import LOGGING  # NOQA
+from .settings_secret import SECRET_FILE, SECRET_KEY  # NOQA
+
+import os
+
+ROOT_URLCONF = 'project.urls'
+
+WSGI_APPLICATION = 'project.wsgi.application'
 
 
 # Application definition
+# https://docs.djangoproject.com/en/1.10/ref/applications/
 
-BASE_APPS = (
+PROJECT_APPS = [
+    'hello_blog'
+]
+
+BASE_APPS = [
+    'werkzeug_debugger_runserver',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -26,34 +38,33 @@ BASE_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'model_utils',
-    'django_extensions',
-    'django_pyc',
-    'rest_framework',
-    'hello_blog',
-)
+]
 
-INSTALLED_APPS = BASE_APPS + EXTRA_BASE_APPS + LOCAL_APPS
+INSTALLED_APPS = EXTRA_BASE_APPS + BASE_APPS + PROJECT_APPS + LOCAL_APPS
 
-MIDDLEWARE_CLASSES = (
+
+# Middleware definition
+# https://docs.djangoproject.com/en/1.10/topics/http/middleware/
+
+BASE_MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-)
+]
 
-ROOT_URLCONF = 'project.urls'
-
-WSGI_APPLICATION = 'project.wsgi.application'
+MIDDLEWARE = EXTRA_MIDDLEWARE + BASE_MIDDLEWARE + LOCAL_MIDDLEWARE
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/1.6/topics/i18n/
+# https://docs.djangoproject.com/en/1.10/topics/i18n/
 
-LANGUAGE_CODE = 'pl'
+LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Europe/Warsaw'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -63,52 +74,65 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.6/howto/static-files/
+# https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
 
 # /home/app/site/static
 STATIC_ROOT = os.path.join(SITE_DIR, 'static')
 
-STATICFILES_DIRS = (
+STATICFILES_DIRS = [
     # /home/app/site/base/static
     os.path.join(BASE_DIR, 'static'),
-)
+]
 
-STATICFILES_FINDERS = (
+STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.FileSystemFinder',
-)
+]
 
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-    # 'django.template.loaders.eggs.Loader',
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            BASE_DIR + '/templates',
+            # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+        ],
+        'OPTIONS': {
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
+            ],
+            'loaders': [
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+                'apptemplates.Loader',
+                # 'django.template.loaders.eggs.Loader',
+            ],
+            'debug': DEBUG
+        },
+    },
+]
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'django.core.context_processors.tz',
-    'django.contrib.messages.context_processors.messages',
-    'django.core.context_processors.request',
-)
-
-TEMPLATE_DIRS = (
-    BASE_DIR + '/templates',
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-)
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
+# https://docs.djangoproject.com/en/1.10/topics/files/
 
 MEDIA_URL = '/media/'
 
 # /home/app/site/media
 MEDIA_ROOT = os.path.join(SITE_DIR, 'media')
+
+
+# Internal IP addresses for DEBUG mode
+INTERNAL_IPS = ['127.0.0.1', '::1']
 
 # Revproxy
 USE_X_FORWARDED_HOST = True
