@@ -39,6 +39,7 @@ BASE_APPS = [
     'django.contrib.staticfiles',
     'model_utils',
     'rest_framework',
+    'rest_framework_swagger',
 ]
 
 INSTALLED_APPS = EXTRA_BASE_APPS + BASE_APPS + PROJECT_APPS + LOCAL_APPS

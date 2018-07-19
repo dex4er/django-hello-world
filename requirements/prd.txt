@@ -10,3 +10,4 @@ django-model-utils
 djangorestframework
 markdown
 django-filter
+django-rest-swagger
