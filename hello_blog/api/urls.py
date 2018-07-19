@@ -1,6 +1,6 @@
 import hello_blog.api.views as views
 
-from django.conf.urls import include, url
+from django.urls import include, path
 from rest_framework import routers
 
 
@@ -10,6 +10,6 @@ router.register(r'note', views.NoteViewSet)
 
 
 urlpatterns = [
-    url('^category/(?P<name>[a-z]+)/$', views.CategoryNameView.as_view()),
-    url(r'^', include(router.urls)),
+    path('category/<name>/', views.CategoryNameView.as_view()),
+    path('', include(router.urls)),
 ]

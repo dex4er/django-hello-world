@@ -38,6 +38,7 @@ BASE_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'model_utils',
+    'rest_framework',
 ]
 
 INSTALLED_APPS = EXTRA_BASE_APPS + BASE_APPS + PROJECT_APPS + LOCAL_APPS
