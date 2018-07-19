@@ -9,9 +9,12 @@ DATABASES = {
         'HOST': '',  # Set to empty string for localhost.
         'PORT': '',  # Set to empty string for default.
         'OPTIONS': {
-            # 'init_command': 'SET storage_engine=INNODB,character_set_connection=utf8,collation_connection=utf8_general_ci' # For mysql
+            # 'init_command': 'SET storage_engine={ENGINE},character_set_connection=utf8,collation_connection=utf8_unicode_ci,sql_mode=STRICT_TRANS_TABLES'.format(ENGINE=ENGINE),  # For mysql
         },
-        # 'TEST_CHARSET': "utf8", # For mysql
-        # 'TEST_COLLATION': "utf8_general_ci", # For mysql
+        'TEST': {
+            'NAME': 'test_hello',
+            # 'CHARSET': 'utf8',  # For mysql
+            # 'COLLATION': 'utf8_unicode_ci',  # For mysql
+        }
     }
 }

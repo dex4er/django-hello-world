@@ -1,13 +1,7 @@
-# -*- coding: utf-8 -*-
-
-from __future__ import unicode_literals
-
 from django.db import models
 from django.contrib import auth
-from django.utils.encoding import python_2_unicode_compatible
 
 
-@python_2_unicode_compatible
 class Category(models.Model):
     name = models.CharField(max_length=100)
 
@@ -18,10 +12,9 @@ class Category(models.Model):
         return self.name
 
 
-@python_2_unicode_compatible
 class Note(models.Model):
-    user = models.ForeignKey(auth.models.User)
-    category = models.ForeignKey(Category)
+    user = models.ForeignKey(auth.models.User, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     keywords = models.CharField(max_length=400)
     title = models.CharField(max_length=200)
     date = models.DateTimeField()

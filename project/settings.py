@@ -8,13 +8,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
-from .settings_local import *  # NOQA
-from .settings_dirs import *  # NOQA
-from .settings_db import *  # NOQA
-from .settings_email import *  # NOQA
-from .settings_log import *  # NOQA
-from .settings_secret import *  # NOQA
+from .settings_local import ALLOWED_HOSTS, DEBUG, DEBUG_TOOLBAR_PATCH_SETTINGS, EXTRA_BASE_APPS, EXTRA_MIDDLEWARE, LOCAL_APPS, LOCAL_MIDDLEWARE  # NOQA
+from .settings_dirs import BASE_DIR, PROJECT_DIR, PROJECT_DIRNAME, SITE_DIR  # NOQA
+from .settings_db import DATABASES  # NOQA
+from .settings_email import EMAIL_BACKEND, EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_PORT, EMAIL_USE_TLS  # NOQA
+from .settings_log import LOGGING  # NOQA
+from .settings_secret import SECRET_FILE, SECRET_KEY  # NOQA
 
+import os
 
 ROOT_URLCONF = 'project.urls'
 
@@ -29,6 +30,7 @@ PROJECT_APPS = [
 ]
 
 BASE_APPS = [
+    'werkzeug_debugger_runserver',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,10 +38,9 @@ BASE_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'model_utils',
-    'django_extensions',
 ]
 
-INSTALLED_APPS = EXTRA_APPS + BASE_APPS + PROJECT_APPS + LOCAL_APPS
+INSTALLED_APPS = EXTRA_BASE_APPS + BASE_APPS + PROJECT_APPS + LOCAL_APPS
 
 
 # Middleware definition
@@ -55,7 +56,7 @@ BASE_MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-MIDDLEWARE_CLASSES = EXTRA_MIDDLEWARE + BASE_MIDDLEWARE + LOCAL_MIDDLEWARE
+MIDDLEWARE = EXTRA_MIDDLEWARE + BASE_MIDDLEWARE + LOCAL_MIDDLEWARE
 
 
 # Internationalization

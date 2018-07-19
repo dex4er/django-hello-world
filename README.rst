@@ -21,7 +21,7 @@ Configuration
 
 .. code:: sh
 
-  for f in project/*.dev.example; do cp $f project/`basename $f .dev.example`; done
+  for f in project/*.dev.example.py; do cp $f project/`basename $f .dev.example.py`.py; done
 
 Running
 ^^^^^^^
@@ -29,7 +29,7 @@ Running
 .. code:: sh
 
   ./manage.py migrate
-  ./manage.py runserver_plus
+  ./manage.py runserver
 
 PostgreSQL
 ----------
@@ -61,7 +61,7 @@ Configuration
 
 .. code:: sh
 
-  cp -f project/settings_db.py.prd.example project/settings_db.py
+  cp -f project/settings_db.prd.example.py project/settings_db.py
 
 Cloning of database
 ^^^^^^^^^^^^^^^^^^^

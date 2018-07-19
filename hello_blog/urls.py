@@ -1,8 +1,8 @@
-from django.conf.urls import url
+from django.urls import path
 
 import hello_blog.views
 
 urlpatterns = [
-    url(r'^$', hello_blog.views.index, name='index'),
-    url(r'^note/(?P<id>\d+)$', hello_blog.views.GetNoteView.as_view(), name='note'),
+    path('note/<int:id>/', hello_blog.views.GetNoteView.as_view(), name='note'),
+    path('', hello_blog.views.index, name='index'),
 ]
