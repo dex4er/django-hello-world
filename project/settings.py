@@ -38,6 +38,10 @@ BASE_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'model_utils',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
+    'graphene_django',
 ]
 
 INSTALLED_APPS = EXTRA_BASE_APPS + BASE_APPS + PROJECT_APPS + LOCAL_APPS
@@ -136,3 +140,21 @@ INTERNAL_IPS = ['127.0.0.1', '::1']
 
 # Revproxy
 USE_X_FORWARDED_HOST = True
+
+
+# Login URL
+LOGIN_URL = '/admin/login/'
+
+
+# API auth
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
+
+# GraphQL
+GRAPHENE = {
+    'SCHEMA': 'hello_blog.schema.schema'
+}
