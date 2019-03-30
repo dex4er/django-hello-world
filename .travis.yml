@@ -7,7 +7,7 @@ python:
 
 install:
   - pip install pipenv
-  - pipenv install
+  - pipenv install --dev
   - for f in project/*.dev.example.py; do cp $f project/`basename $f .dev.example.py`.py; done
 
 script:
