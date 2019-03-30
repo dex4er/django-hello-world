@@ -1,8 +1,8 @@
 # Database for development
-# note: sqlite doesn't work with South
 
 import os.path
-from .settings_dirs import BASE_DIR
+
+from project.settings_dirs import BASE_DIR
 
 DATABASES = {
     'default': {

@@ -1,4 +1,0 @@
-doc8
-flake8
-mypy
-Pygments

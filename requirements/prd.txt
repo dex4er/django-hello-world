@@ -1,8 +1,0 @@
-Django < 2.1
-
-PyYAML >= 4.2b2
-
-django-werkzeug-debugger-runserver
-
-django-apptemplates
-django-model-utils

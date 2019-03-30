@@ -1,21 +1,13 @@
-"""
-Django settings for project project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.10/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.10/ref/settings/
-"""
-
-from .settings_local import ALLOWED_HOSTS, DEBUG, DEBUG_TOOLBAR_PATCH_SETTINGS, EXTRA_BASE_APPS, EXTRA_MIDDLEWARE, LOCAL_APPS, LOCAL_MIDDLEWARE  # NOQA
-from .settings_dirs import BASE_DIR, PROJECT_DIR, PROJECT_DIRNAME, SITE_DIR  # NOQA
-from .settings_db import DATABASES  # NOQA
-from .settings_email import EMAIL_BACKEND, EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_PORT, EMAIL_USE_TLS  # NOQA
-from .settings_log import LOGGING  # NOQA
-from .settings_secret import SECRET_FILE, SECRET_KEY  # NOQA
+# pylint: disable=unused-import
 
 import os
+
+from project.settings_local import ALLOWED_HOSTS, DEBUG, DEBUG_TOOLBAR_PATCH_SETTINGS, EXTRA_BASE_APPS, EXTRA_MIDDLEWARE, LOCAL_APPS, LOCAL_MIDDLEWARE  # NOQA
+from project.settings_dirs import BASE_DIR, PROJECT_DIR, PROJECT_DIRNAME, SITE_DIR  # NOQA
+from project.settings_db import DATABASES  # NOQA
+from project.settings_email import EMAIL_BACKEND, EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_PORT, EMAIL_USE_TLS  # NOQA
+from project.settings_log import LOGGING  # NOQA
+from project.settings_secret import SECRET_FILE, SECRET_KEY  # NOQA
 
 ROOT_URLCONF = 'project.urls'
 
@@ -23,7 +15,6 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 
 # Application definition
-# https://docs.djangoproject.com/en/1.10/ref/applications/
 
 PROJECT_APPS = [
     'hello_world'
@@ -44,7 +35,6 @@ INSTALLED_APPS = EXTRA_BASE_APPS + BASE_APPS + PROJECT_APPS + LOCAL_APPS
 
 
 # Middleware definition
-# https://docs.djangoproject.com/en/1.10/topics/http/middleware/
 
 BASE_MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -60,7 +50,6 @@ MIDDLEWARE = EXTRA_MIDDLEWARE + BASE_MIDDLEWARE + LOCAL_MIDDLEWARE
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/1.10/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -74,7 +63,6 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
 
@@ -123,7 +111,6 @@ TEMPLATES = [
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
-# https://docs.djangoproject.com/en/1.10/topics/files/
 
 MEDIA_URL = '/media/'
 

@@ -11,10 +11,8 @@ Environment
 
 .. code:: sh
 
-  virtualenv .virtualenv
-  . .virtualenv/bin/activate
-  pip install -U pip setuptools
-  pip install -r requirements.txt
+  pip install pipenv
+  pipenv install --dev
 
 Configuration
 ^^^^^^^^^^^^^
@@ -28,8 +26,8 @@ Running
 
 .. code:: sh
 
-  ./manage.py migrate
-  ./manage.py runserver
+  pipenv run ./manage.py migrate
+  pipenv run ./manage.py runserver
 
 PostgreSQL
 ----------
@@ -54,14 +52,14 @@ Environment
 
 .. code:: sh
 
-  pip install -r requirements/db.txt
+  pipenv install psycopg2
 
 Configuration
 ^^^^^^^^^^^^^
 
 .. code:: sh
 
-  cp -f project/settings_db.prd.example.py project/settings_db.py
+  cp -f project/settings_db.postgresql.example.py project/settings_db.py
 
 Cloning of database
 ^^^^^^^^^^^^^^^^^^^

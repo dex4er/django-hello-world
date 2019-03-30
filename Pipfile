@@ -1,0 +1,33 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+django = "<2.2"
+pyyaml = ">=4.2b2"
+django-werkzeug-debugger-runserver = "*"
+django-apptemplates = "*"
+django-model-utils = "*"
+
+[dev-packages]
+# debug
+sqlparse = '*'
+werkzeug = '*'
+django-debug-toolbar = '*'
+# tests
+behave = '*'
+expects = '*'
+pyquery = '*'
+# linters
+bandit = '*'
+doc8 = '*'
+flake8 = '*'
+mypy = '*'
+Pygments = '*'
+pylint = '*'
+pylint-django = '*'
+safety = "*"
+
+[requires]
+python_version = "3.7"
