@@ -8,6 +8,7 @@ python:
 install:
   - pip install pipenv
   - pipenv install --dev
+  - ( pipenv lock --requirements && pipenv lock --dev --requirements ) | sort -u > requirements.txt
   - for f in project/*.dev.example.py; do cp $f project/`basename $f .dev.example.py`.py; done
 
 script:
@@ -15,8 +16,8 @@ script:
   - pipenv run flake8
   - pipenv run pylint hello_world project *.py
   - pipenv run mypy .
-  - pipenv run safety check
-  - pipenv run bandit -r . -f screen
+  - pipenv run safety check --file requirements.txt --full-report
+  - pipenv run bandit --recursive --format screen .
   - pipenv run doc8 README.rst
 
   # Do migrations
@@ -27,3 +28,6 @@ script:
 
   # Test features
   - pipenv run ./manage.py test
+
+env:
+  - PIPENV_VERBOSITY=-1
