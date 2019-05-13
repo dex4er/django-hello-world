@@ -4,30 +4,34 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [packages]
-django = "<2.2"
-pyyaml = ">=4.2b2"
-django-werkzeug-debugger-runserver = "*"
+django = "*"
+django-admin-sortable2 = "*"
 django-apptemplates = "*"
+django-createuser = "*"
+django-database-for-apps = "*"
+django-environ = "*"
+django-migrations-ignore-attrs = "*"
 django-model-utils = "*"
+django-prometheus = "*"
+django-pyc = "*"
+django-tz-detect = "*"
+django-werkzeug-debugger-runserver = "*"
+djangorestframework = "*"
+natural-keys = "*"
+pyyaml = "*"
 
 [dev-packages]
-# debug
-sqlparse = '*'
-werkzeug = '*'
-django-debug-toolbar = '*'
-# tests
-behave = '*'
-expects = '*'
-pyquery = '*'
-# linters
 bandit = '*'
+behave = '*'
+django-debug-toolbar = '*'
 doc8 = '*'
+expects = '*'
 flake8 = '*'
 mypy = '*'
-Pygments = '*'
+pygments = '*'
 pylint = '*'
 pylint-django = '*'
+pyquery = '*'
 safety = "*"
-
-[requires]
-python_version = "3.7"
+sqlparse = '*'
+werkzeug = '*'

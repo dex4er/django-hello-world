@@ -1,21 +1,24 @@
+*.gz
 *.pyc
-*.sqlite3
+*.zip
 
 __pycache__
 
-/project/secret.txt
-/project/settings_db.py
-/project/settings_dirs.py
-/project/settings_email.py
-/project/settings_local.py
-/project/settings_log.py
+/.env
+/.my.cnf
 
-/requirements.txt
+/build
+/dev-requirements.txt
+/dist
+/docs
 /Pipfile.lock
+/requirements.txt
+/tests
 
 /.cache
-/.download
+/.eggs
 /.mypy_cache
+/.packages
 /.pip
 /.project
 /.pydevproject

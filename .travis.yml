@@ -2,32 +2,19 @@ dist: xenial
 
 language: python
 
-python:
-  - "3.7"
+matrix:
+  include:
+    - python: "3.7"
+      env: TEST_LINT=yes
 
-install:
-  - pip install pipenv
-  - pipenv install --dev
-  - ( pipenv lock --requirements && pipenv lock --dev --requirements ) | sort -u > requirements.txt
-  - for f in project/*.dev.example.py; do cp $f project/`basename $f .dev.example.py`.py; done
-
-script:
-  # Linter tests
-  - pipenv run flake8
-  - pipenv run pylint hello_world project *.py
-  - pipenv run mypy .
-  - pipenv run safety check --file requirements.txt --full-report
-  - pipenv run bandit --recursive --format screen .
-  - pipenv run doc8 README.rst
-
-  # Do migrations
-  - pipenv run ./manage.py migrate
-
-  # Check if model changes are missing migrations
-  - pipenv run ./manage.py makemigrations --dry-run --check
-
-  # Test features
-  - pipenv run ./manage.py test
+    - python: "3.6"
 
 env:
-  - PIPENV_VERBOSITY=-1
+  global:
+    - PIPENV_VERBOSITY=-1
+
+install:
+  - .travis/install.sh
+
+script:
+  - .travis/script.sh

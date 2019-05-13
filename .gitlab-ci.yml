@@ -1,0 +1,133 @@
+image: ubuntu:bionic
+
+cache:
+  paths:
+    - .cache/
+
+stages:
+  - make:venv
+  - test:app
+  - make:packages:develop
+  - test:packages:develop
+  - export:packages:develop
+  - merge:packages:master
+  - tag:packages:master
+  - tag:app:master
+
+variables:
+  GIT_REPO_APP_URL: git@gitlab.com:dex4er/django-hello-world.git
+  GIT_REPO_PACKAGES_URL: git@gitlab.com:dex4er/django-hello-world-packages.git
+  VERSION_FROM: django_hello_world/__init__.py
+
+make:venv:
+  stage: make:venv
+  before_script:
+    - . .gitlab-ci/before/environ.sh
+    - . .gitlab-ci/before/apt.sh
+    - . .gitlab-ci/before/python.sh
+    - . .gitlab-ci/before/pipenv.sh
+  script:
+    - . .gitlab-ci/make-venv.sh
+  except:
+    - tags
+  artifacts:
+    paths:
+      - .venv/
+    expire_in: 1 days
+
+test:app:
+  stage: test:app
+  before_script:
+    - . .gitlab-ci/before/environ.sh
+    - . .gitlab-ci/before/apt.sh
+    - . .gitlab-ci/before/python.sh
+    - . .gitlab-ci/before/pipenv.sh
+  script:
+    - . .gitlab-ci/test-app.sh
+  except:
+    - tags
+
+make:packages:develop:
+  stage: make:packages:develop
+  before_script:
+    - . .gitlab-ci/before/environ.sh
+    - . .gitlab-ci/before/apt.sh
+    - . .gitlab-ci/before/python.sh
+    - . .gitlab-ci/before/pipenv.sh
+  script:
+    - . .gitlab-ci/make-packages.sh
+  only:
+    - develop
+  artifacts:
+    paths:
+      - .packages/
+    expire_in: 1 week
+
+test:packages:develop:
+  stage: test:packages:develop
+  before_script:
+    - . .gitlab-ci/before/environ.sh
+    - . .gitlab-ci/before/apt.sh
+    - . .gitlab-ci/before/python.sh
+  script:
+    - . .gitlab-ci/test-packages.sh
+  only:
+    - develop
+
+export:packages:develop:
+  stage: export:packages:develop
+  before_script:
+    - . .gitlab-ci/before/environ.sh
+    - . .gitlab-ci/before/apt.sh
+    - . .gitlab-ci/before/git.sh
+    - . .gitlab-ci/before/ssh-private-key.sh
+  script:
+    - . .gitlab-ci/export.sh
+  only:
+    - develop
+  variables:
+    ARTIFACTS_PATH: .packages/
+    GIT_REPO_URL: $GIT_REPO_PACKAGES_URL
+
+merge:packages:master:
+  stage: merge:packages:master
+  before_script:
+    - . .gitlab-ci/before/environ.sh
+    - . .gitlab-ci/before/apt.sh
+    - . .gitlab-ci/before/git.sh
+    - . .gitlab-ci/before/ssh-private-key.sh
+  script:
+    - . .gitlab-ci/merge.sh
+  only:
+    - master
+  variables:
+    GIT_MERGE_FROM: develop
+    GIT_REPO_URL: $GIT_REPO_PACKAGES_URL
+
+tag:packages:master:
+  stage: tag:packages:master
+  before_script:
+    - . .gitlab-ci/before/environ.sh
+    - . .gitlab-ci/before/apt.sh
+    - . .gitlab-ci/before/git.sh
+    - . .gitlab-ci/before/ssh-private-key.sh
+  script:
+    - . .gitlab-ci/tag.sh
+  only:
+    - master
+  variables:
+    GIT_REPO_URL: $GIT_REPO_PACKAGES_URL
+
+tag:app:master:
+  stage: tag:app:master
+  before_script:
+    - . .gitlab-ci/before/environ.sh
+    - . .gitlab-ci/before/apt.sh
+    - . .gitlab-ci/before/git.sh
+    - . .gitlab-ci/before/ssh-private-key.sh
+  script:
+    - . .gitlab-ci/tag.sh
+  only:
+    - master
+  variables:
+    GIT_REPO_URL: $GIT_REPO_APP_URL

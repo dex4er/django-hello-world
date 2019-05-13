@@ -1,0 +1,9 @@
+[
+{
+  "model": "django_hello_world_blog.category",
+  "pk": 1,
+  "fields": {
+    "name": "category"
+  }
+}
+]

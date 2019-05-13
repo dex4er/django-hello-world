@@ -1,4 +1,0 @@
-[pep8]
-# ignore =
-exclude = .virtualenv
-max-line-length = 200
