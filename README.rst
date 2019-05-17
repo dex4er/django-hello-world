@@ -1,3 +1,8 @@
+.. image:: https://travis-ci.org/dex4er/django-hello-world.svg?branch=develop
+   :target: https://travis-ci.org/dex4er/django-hello-world
+.. image:: https://gitlab.com/dex4er/django-hello-world/badges/develop/build.svg
+   :target: https://gitlab.com/dex4er/django-hello-world/pipelines
+
 Hello, World
 ============
 
