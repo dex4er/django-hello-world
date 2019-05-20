@@ -80,9 +80,6 @@ USE_TZ = True
 # /opt/django-hello-world
 SITE_DIR = env.str('SITE_DIR', default=os.path.realpath(os.path.dirname(os.environ.get('VIRTUAL_ENV', os.path.dirname(os.path.abspath(__file__))))))
 
-# /opt/django-hello-world/django_hello_world
-PROJECT_DIR = env.str('PROJECT_DIR', default=os.path.join(SITE_DIR, PROJECT_NAME))
-
 # /opt/django-hello-world/run
 RUN_DIR = env.str('RUN_DIR', default=os.path.join(SITE_DIR, 'run'))
 

@@ -24,7 +24,6 @@ TIME_ZONE="GMT"
 
 # Default directories
 # SITE_DIR="/opt/django-hello-world"
-# PROJECT_DIR="/opt/django-hello-world/project"
 # RUN_DIR="/opt/django-hello-world/run"
 
 # Static files (CSS, JavaScript, Images)
