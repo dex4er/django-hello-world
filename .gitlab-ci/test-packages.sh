@@ -11,8 +11,10 @@ cd -
 
 cp -f .env.example.sh .env
 
+export READ_ENV=.env
+
 for db in default django; do
-    READ_ENV=.env $app_script migrate --force-color --database $db
+    $app_script migrate --force-color --database $db
 done
 
-READ_ENV=.env $app_script check
+$app_script check

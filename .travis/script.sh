@@ -3,7 +3,8 @@
 set -e
 set -x
 
-sources=$(echo django_hello_world django_hello_world_blog *.py)
+apps="django_hello_world_blog"
+sources=$(echo $apps django_hello_world *.py)
 
 if [ "$TEST_LINT" = yes ]; then
     pipenv run flake8 $sources
@@ -22,5 +23,5 @@ for db in default django; do
     pipenv run python manage.py migrate --force-color --database $db
 done
 
-pipenv run python manage.py makemigrations --force-color --dry-run --check django_hello_world_blog
+pipenv run python manage.py makemigrations --force-color --dry-run --check $apps
 pipenv run python manage.py loaddata category note
