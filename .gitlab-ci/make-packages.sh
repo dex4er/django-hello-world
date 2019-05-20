@@ -16,6 +16,8 @@ pipenv run pip download -r .packages/dev-requirements.txt -d .packages
 
 $find .packages -maxdepth 1 -regextype egrep -regex '.*\.(gz|whl|zip)' -printf "%P\n" | sort > .packages/dev-packages.txt
 
+export SOURCE_DATE_EPOCH=315532800
+
 pipenv run python setup.py sdist bdist_wheel
 
 $find dist -maxdepth 1 -name '*.whl' -printf "%P\n" > .packages/dist-packages.txt
