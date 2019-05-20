@@ -15,3 +15,7 @@ pipenv lock --dev --requirements >> .packages/dev-requirements.txt
 pipenv run pip download -r .packages/dev-requirements.txt -d .packages
 
 $find .packages -maxdepth 1 -regextype egrep -regex '.*\.(gz|whl|zip)' -printf "%P\n" | sort > .packages/dev-packages.txt
+
+pipenv run python setup.py sdist bdist_wheel
+
+cp -f dist/*.whl .packages
