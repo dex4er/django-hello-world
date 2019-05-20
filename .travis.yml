@@ -14,7 +14,7 @@ env:
     - PIPENV_VERBOSITY=-1
 
 install:
-  - . .travis/install.sh
+  - bash .travis/install.sh
 
 script:
-  - . .travis/script.sh
+  - bash .travis/script.sh
