@@ -8,6 +8,8 @@ cd -
 
 cp -f .env.example.sh .env
 
-export READ_ENV='yes'
+for db in default django; do
+    python manage.py migrate --force-color --database $db
+done
 
-python manage.py test
+python manage.py check

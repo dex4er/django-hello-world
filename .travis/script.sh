@@ -14,7 +14,7 @@ fi
 
 cp -f .env.example.sh .env
 
-export READ_ENV='no'
+export READ_ENV=".env"
 
 pipenv run python manage.py test
 

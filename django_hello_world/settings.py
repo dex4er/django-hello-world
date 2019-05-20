@@ -5,8 +5,10 @@ import environ
 
 env = environ.Env()
 
-if env.bool('READ_ENV', default=True):
-    env.read_env(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '.env'))
+# Read env from the file
+READ_ENV = env.str('READ_ENV', default='')
+if READ_ENV:
+    env.read_env(READ_ENV)
 
 # Debug mode
 DEBUG = env.bool('DEBUG', default=False)
@@ -90,10 +92,7 @@ STATIC_URL = env.str('STATIC_URL', default='/static/')
 # /opt/django-hello-world/run/static
 STATIC_ROOT = env.str('STATIC_ROOT', os.path.join(RUN_DIR, 'static'))
 
-STATICFILES_DIRS = [
-    # /opt/django-hello-world/static
-    os.path.join(SITE_DIR, 'static'),
-]
+STATICFILES_DIRS = []
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
