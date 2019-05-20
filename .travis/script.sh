@@ -16,6 +16,7 @@ fi
 cp -f .env.example.sh .env
 
 export READ_ENV=".env"
+export SITE_DIR=$TRAVIS_BUILD_DIR
 
 pipenv run python manage.py test
 
