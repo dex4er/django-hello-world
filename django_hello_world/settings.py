@@ -175,14 +175,11 @@ for db in DATABASES.values():
         }
 
 # Hints for DB router
+DATABASE_FOR_APPS = env.dict('DATABASE_FOR_APPS', default=dict([(k.split('.')[-1], 'default') for k in PROJECT_APPS] + [('*', 'django')]))
+
 DATABASE_ROUTERS = [
     'django_database_for_apps.Router'
 ]
-
-DATABASE_FOR_APPS = env.dict('DATABASE_FOR_APPS', default={
-    'blog': 'default',
-    '*': 'django',
-})
 
 # Logging
 DJANGO_LOG_FORMAT = env.str('DJANGO_LOG_FORMAT', 'full' if sys.stdout.isatty() else 'verbose')
