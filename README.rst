@@ -11,13 +11,20 @@ The template for Django applications.
 Django Application
 ------------------
 
-Environment
-^^^^^^^^^^^
+Pipenv
+^^^^^^
 
 .. code:: sh
 
   pip install pipenv
-  pipenv install --dev
+
+or
+
+  apt install pipenv
+
+or
+
+  brew install pipenv
 
 Configuration
 ^^^^^^^^^^^^^
@@ -26,24 +33,57 @@ Configuration
 
   cp .env.example.sh .env
 
-Running
-^^^^^^^
+Then either
 
 .. code:: sh
 
+  set -a; . .env; set +a
+
+or
+
+  export READ_ENV=.env
+
+Running from working tree
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code:: sh
+
+  pip install pipenv
+  pipenv install --dev
   pipenv run ./manage.py migrate
   pipenv run ./manage.py runserver
 
+Installing
+^^^^^^^^^^
+
+.. code:: sh
+
+  pipenv run ./setup.py bdist_wheel
+  virtualenv -ppython3 /opt/django-hello-world
+  bash --rcfile /opt/django-hello-world/bin/activate
+  pip install dist/django_hello_world-*.whl
+
+Running from package
+^^^^^^^^^^^^^^^^^^^^
+
+.. code:: sh
+
+  PATH=/opt/django-hello-world/bin:$PATH
+  django-hello-world migrate
+  django-hello-world runserver
+
+Database
+--------
+
 SQLite
-------
+^^^^^^
 
 By default this project uses SQLite databases stored in ``./run/db`` directory.
 
 MySQL
------
+^^^^^
 
-Debian / Ubuntu
-^^^^^^^^^^^^^^^
+*Debian / Ubuntu*
 
 .. code:: sh
 
@@ -55,8 +95,7 @@ or:
 
   sudo apt-get install mariadb-server mariadb-client libmariadbclient-dev-compat
 
-Configuration
-^^^^^^^^^^^^^
+*Configuration*
 
 .. code:: sh
 
@@ -78,18 +117,16 @@ Configuration
   password =
   END
 
-Environment
-^^^^^^^^^^^
+*Python*
 
 .. code:: sh
 
   pipenv install mysqlclient
 
 PostgreSQL
-----------
+^^^^^^^^^^
 
-Debian / Ubuntu
-^^^^^^^^^^^^^^^
+*Debian / Ubuntu*
 
 .. code:: sh
 
@@ -103,8 +140,7 @@ Debian / Ubuntu
   chmod 600 ~/.pgpass
   psql -U hello hello -c '\dt'
 
-Environment
-^^^^^^^^^^^
+*Python*
 
 .. code:: sh
 
@@ -115,6 +151,12 @@ systemd
 
 The application can be started using embedded Werkzeug HTTP server that can be
 started as a systemd service.
+
+.. code:: sh
+
+  adduser --system --group django-hello-world
+
+``/etc/systemd/system/django-hello-world.service``
 
 .. code:: ini
 
@@ -127,12 +169,20 @@ started as a systemd service.
   User=django-hello-world
   Group=django-hello-world
   EnvironmentFile=/opt/django-hello-world/.env
-  ExecStart=/opt/django-hello-world/.venv/bin/python ./manage.py runserver --noreload --insecure --threaded --no-color 0.0.0.0:8000
+  ExecStart=/opt/django-hello-world/bin/django-hello-world runserver --noreload --insecure --threaded --no-color 0.0.0.0:8000
   KillMode=process
   Restart=on-failure
 
   [Install]
   WantedBy=multi-user.target
+
+Then
+
+.. code:: sh
+
+  systemctl enable django-hello-world.service
+  systemctl start django-hello-world.service
+  journalctl -f -u django-hello-world.service
 
 Project management
 ------------------
@@ -141,8 +191,8 @@ Repository
 ^^^^^^^^^^
 
 This repository uses "relaxed" git-flow layout: main leading branch is
-`develop` and the latest stable code is `master`. The feature and bugfix
-branches are merged into `develop`. Changes from `develop` and `master` are
+``develop`` and the latest stable code is ``master``. The feature and bugfix
+branches are merged into ``develop``. Changes from `develop` and `master` are
 fast-forwarded.
 
 Versioning
@@ -153,7 +203,7 @@ Version number schema is: ``MAJOR.YYYYMMDD.REL``, where ``MAJOR`` is a real
 project version and ``REL`` is a number for a release in the same day.
 
 Version number is stored in a ``django_hello_world/__init__.py`` file (main
-project module) and provides `VERSION` and `__version__` symbols, ie.:
+project module) and provides ``VERSION`` and ``__version__`` symbols, ie.:
 
 .. code:: python
 
@@ -178,7 +228,7 @@ Main App repository
 GitLab pipelines use read-write access to main and artifacts repository using
 private SSH deployment key stored in ``SSH_PRIVATE_KEY`` variable.
 
-This repository has changed the default branch to `develop` and enabled SSH
+This repository has changed the default branch to ``develop`` and enabled SSH
 deployment key with read-write access.
 
 Artifacts repository
@@ -186,8 +236,8 @@ Artifacts repository
 
 Artifacts are stored in separate Git repository with git-lfs support.
 
-Artifacts repository uses the same layout as a main app repository (`develop`,
-`master`, tags).
+Artifacts repository uses the same layout as a main app repository
+(``develop``, ``master``, tags).
 
 Initialization for artifacts repository was:
 
@@ -204,7 +254,14 @@ Initialization for artifacts repository was:
   git commit -m git-lfs .
   git push origin develop
 
-Then the default branch was changed to `develop`.
+Then the default branch was changed to ``develop``.
 
 This repository has disabled CI pipelines and enabled SSH deployment key with
 read-write access.
+
+Release
+^^^^^^^
+
+Release pipeline is started after fast-forward from ``develop`` to ``master``.
+This pipeline do fast-forward in artifacts repository and make a new tag based
+on a current package version.
