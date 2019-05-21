@@ -53,7 +53,7 @@ DATABASE_DJANGO_URL="sqlite:///run/db/django.sqlite"
 # DATABASE_DJANGO_URL="mysql:///django?init_command=SET%20default_storage_engine=InnoDB,sql_mode=STRICT_TRANS_TABLES,character_set_connection=utf8,collation_connection=utf8_unicode_ci&read_default_file=.my.cnf&read_default_group=mysql:django"
 # DATABASE_CHARSET="utf8mb4"
 # DATABASE_COLLATION="utf8mb4_unicode_ci"
-# DATABASE_FOR_APPS="django_hello_world.blog=default,*=django"
+# DATABASE_FOR_APPS="blog=default,*=django"
 
 # pipenv
 PIPENV_VENV_IN_PROJECT="yes"

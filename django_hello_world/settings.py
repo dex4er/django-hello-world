@@ -180,7 +180,7 @@ DATABASE_ROUTERS = [
 ]
 
 DATABASE_FOR_APPS = env.dict('DATABASE_FOR_APPS', default={
-    'django_hello_world.blog': 'default',
+    'blog': 'default',
     '*': 'django',
 })
 
