@@ -1,6 +1,9 @@
 #!/bin/sh
 # Example .env file
 
+# Don't change it: Django won't load .env again
+READ_ENV=""
+
 # Django application
 DJANGO_SETTINGS_MODULE="django_hello_world.settings"
 
