@@ -1,4 +1,6 @@
+set +x
 test -n "$SSH_PRIVATE_KEY" || exit 1
+set -x
 
 apt-get -y install openssh-client
 
