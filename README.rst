@@ -20,9 +20,13 @@ Pipenv
 
 or
 
+.. code:: sh
+
   apt install pipenv
 
 or
+
+.. code:: sh
 
   brew install pipenv
 
@@ -40,6 +44,8 @@ Then either
   set -a; . .env; set +a
 
 or
+
+.. code:: sh
 
   export READ_ENV=.env
 
