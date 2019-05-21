@@ -1,6 +1,6 @@
 [
 {
-  "model": "django_hello_world_blog.category",
+  "model": "blog.category",
   "pk": 1,
   "fields": {
     "name": "category"

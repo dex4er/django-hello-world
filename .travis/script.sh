@@ -3,8 +3,8 @@
 set -e
 set -x
 
-apps="django_hello_world_blog"
-sources=$(echo $apps django_hello_world *.py)
+apps="blog"
+sources=$(echo django_hello_world *.py)
 
 if [ "$TEST_LINT" = yes ]; then
     pipenv run flake8 $sources

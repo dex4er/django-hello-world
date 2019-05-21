@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=200)),
                 ('date', models.DateTimeField()),
                 ('content', models.TextField(max_length=50000)),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='django_hello_world_blog.Category')),
+                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='blog.Category')),
             ],
             options={
                 'db_table': 'note',

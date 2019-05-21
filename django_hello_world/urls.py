@@ -6,7 +6,7 @@ admin.autodiscover()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('django_hello_world_blog.urls')),
+    path('', include('django_hello_world.blog.urls')),
 ]
 
 if 'debug_toolbar' in settings.INSTALLED_APPS:

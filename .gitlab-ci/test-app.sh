@@ -1,5 +1,5 @@
-apps="django_hello_world_blog"
-sources=$(echo $apps django_hello_world *.py)
+apps="blog"
+sources=$(echo django_hello_world *.py)
 
 pipenv run flake8 $sources
 pipenv run pylint --rcfile=setup.cfg $sources

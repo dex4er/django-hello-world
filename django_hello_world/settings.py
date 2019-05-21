@@ -22,7 +22,7 @@ ROOT_URLCONF = PROJECT_NAME + '.urls'
 WSGI_APPLICATION = PROJECT_NAME + '.wsgi.application'
 
 PROJECT_APPS = [
-    'django_hello_world_blog',
+    'django_hello_world.blog',
 ]
 
 BASE_APPS = [
@@ -180,7 +180,7 @@ DATABASE_ROUTERS = [
 ]
 
 DATABASE_FOR_APPS = env.dict('DATABASE_FOR_APPS', default={
-    'django_hello_world_blog': 'default',
+    'django_hello_world.blog': 'default',
     '*': 'django',
 })
 

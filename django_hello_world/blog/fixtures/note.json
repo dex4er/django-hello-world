@@ -1,6 +1,6 @@
 [
 {
-  "model": "django_hello_world_blog.note",
+  "model": "blog.note",
   "pk": 1,
   "fields": {
     "category": 1,

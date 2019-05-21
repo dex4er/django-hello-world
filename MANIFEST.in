@@ -2,4 +2,3 @@ include .env.example.sh
 include LICENSE
 include README.rst
 recursive-include django_hello_world *
-recursive-include django_hello_world_blog *
