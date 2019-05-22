@@ -54,6 +54,3 @@ DATABASE_DJANGO_URL="sqlite:///run/db/django.sqlite"
 # DATABASE_CHARSET="utf8mb4"
 # DATABASE_COLLATION="utf8mb4_unicode_ci"
 # DATABASE_FOR_APPS="blog=default,*=django"
-
-# pipenv
-PIPENV_VENV_IN_PROJECT="yes"
