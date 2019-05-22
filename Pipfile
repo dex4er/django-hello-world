@@ -23,6 +23,7 @@ pyyaml = "*"
 [dev-packages]
 bandit = "*"
 behave = "*"
+black = "==19.3b0"
 django-debug-toolbar = "*"
 doc8 = "*"
 expects = "*"
