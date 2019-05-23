@@ -1,0 +1,22 @@
+# Run Gitlab CI scripts directly in Docker
+
+# Usage: docker-compose up --abort-on-container-exit --exit-code-from test --force-recreate
+
+version: "3"
+
+services:
+  test:
+    image: ubuntu:bionic
+    environment:
+      VERSION_FROM: django_hello_world/__init__.py
+    volumes:
+      - ..:/build
+    tmpfs:
+      - /build/.cache
+      - /build/.packages
+      - /build/build
+      - /build/dist
+      - /build/django_hello_world.egg-info
+      - /build/run/db
+      - /build/run/secret
+    command: /bin/bash /build/.gitlab-ci/helpers/test-in-docker-compose.sh

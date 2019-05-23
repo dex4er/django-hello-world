@@ -20,6 +20,6 @@ export SOURCE_DATE_EPOCH=315532800
 
 pipenv run python setup.py sdist bdist_wheel
 
-$find dist -maxdepth 1 -name '*.whl' -printf "%P\n" > .packages/dist-packages.txt
+$find dist -maxdepth 1 -name '*.whl' -printf "%P\n" | sort | tail -n1 > .packages/dist-packages.txt
 
 cp -f dist/*.whl .packages

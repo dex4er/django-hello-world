@@ -10,8 +10,8 @@ exclude = '''
     | \.packages
     | \.pip
     | \.tox
-    | \.venv
-    | \.virtualenv
+    | \.venv.*
+    | \.virtualenv.*
     | _build
     | build
     | dist

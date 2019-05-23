@@ -1,6 +1,7 @@
 app_package="django_hello_world"
 app_script="django-hello-world"
 
+rm -rf .venv2
 virtualenv --python=python3 --no-download .venv2
 
 . .venv2/bin/activate
