@@ -1,4 +1,3 @@
-app_package="django_hello_world"
 app_script="django-hello-world"
 
 virtualenv --python=python3 --clear --no-download .venv2
