@@ -14,6 +14,8 @@ services:
     tmpfs:
       - /build/.cache
       - /build/.packages
+      - /build/.venv:exec
+      - /build/.venv2:exec
       - /build/build
       - /build/dist
       - /build/django_hello_world.egg-info

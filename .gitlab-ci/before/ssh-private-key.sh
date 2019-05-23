@@ -2,7 +2,7 @@ set +x
 test -n "$SSH_PRIVATE_KEY" || exit 1
 set -x
 
-apt-get -y install openssh-client
+apt-get install openssh-client
 
 mkdir -p ~/.ssh
 printf "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
