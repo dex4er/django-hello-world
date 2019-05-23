@@ -265,6 +265,19 @@ Then the default branch was changed to ``develop``.
 This repository has disabled CI pipelines and enabled SSH deployment key with
 read-write access.
 
+Testing
+^^^^^^^
+
+Testing pipieline is started after each push to any branch.
+
+It is possible to run GitLab testing pipeline without GitLab runner using
+``docker-compose``.
+
+.. code:: sh
+
+  cd .gitlab-ci
+  docker-compose up --abort-on-container-exit --exit-code-from test --force-recreate
+
 Release
 ^^^^^^^
 
