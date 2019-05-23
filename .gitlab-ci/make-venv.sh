@@ -1,4 +1,3 @@
-pipenv --three
 pipenv lock --requirements > requirements.txt
 echo -r requirements.txt > dev-requirements.txt
 pipenv lock --dev --requirements >> dev-requirements.txt
