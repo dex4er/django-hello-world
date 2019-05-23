@@ -17,3 +17,5 @@ cd $(dirname $0)/../..
 
 # test:packages:develop:
 . .gitlab-ci/test-packages.sh
+
+exit 0
