@@ -265,6 +265,18 @@ Then the default branch was changed to ``develop``.
 This repository has disabled CI pipelines and enabled SSH deployment key with
 read-write access.
 
+Offline installation
+^^^^^^^^^^^^^^^^^^^^
+
+Artifacts repository allows to install all packages in offline mode.
+
+.. code:: sh
+
+  git clone $GIT_REPO_PACKAGES_URL .packages
+  virtualenv -ppython3 /opt/django-hello-world
+  bash --rcfile /opt/django-hello-world/bin/activate
+  pip install --no-index --find-links .packages --upgrade --requirement dist-requirements.txt
+
 Testing
 ^^^^^^^
 
