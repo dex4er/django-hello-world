@@ -23,10 +23,7 @@ PROJECT_NAME = env.str(
 ROOT_URLCONF = PROJECT_NAME + ".urls"
 WSGI_APPLICATION = PROJECT_NAME + ".wsgi.application"
 
-PROJECT_APPS = [
-    PROJECT_NAME,
-    PROJECT_NAME + ".blog",
-]
+PROJECT_APPS = [PROJECT_NAME, PROJECT_NAME + ".blog"]
 
 BASE_APPS = [
     "werkzeug_debugger_runserver",
