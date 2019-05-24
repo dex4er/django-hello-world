@@ -23,7 +23,10 @@ PROJECT_NAME = env.str(
 ROOT_URLCONF = PROJECT_NAME + ".urls"
 WSGI_APPLICATION = PROJECT_NAME + ".wsgi.application"
 
-PROJECT_APPS = ["django_hello_world.blog"]
+PROJECT_APPS = [
+    PROJECT_NAME,
+    PROJECT_NAME + ".blog",
+]
 
 BASE_APPS = [
     "werkzeug_debugger_runserver",
@@ -108,7 +111,7 @@ STATICFILES_FINDERS = [
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(SITE_DIR, "/templates")],
+        "DIRS": [os.path.join(PROJECT_NAME, "/templates")],
         "OPTIONS": {
             "context_processors": [
                 "django.contrib.auth.context_processors.auth",
@@ -124,7 +127,6 @@ TEMPLATES = [
                 "django.template.loaders.filesystem.Loader",
                 "django.template.loaders.app_directories.Loader",
                 "apptemplates.Loader",
-                # 'django.template.loaders.eggs.Loader',
             ],
             "debug": DEBUG,
         },
