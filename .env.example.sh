@@ -27,6 +27,7 @@ TIME_ZONE="GMT"
 
 # Default directories
 # SITE_DIR="/opt/django-hello-world"
+# PROJECT_DIR="/opt/django-hello-world/lib/python*/site-packages/mta_gui" # depends on Python version
 # RUN_DIR="/opt/django-hello-world/run"
 
 # Static files (CSS, JavaScript, Images)

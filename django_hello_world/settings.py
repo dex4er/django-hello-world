@@ -89,6 +89,9 @@ SITE_DIR = env.str(
     ),
 )
 
+# /opt/mta-gui/lib/python*/site-packages/mta_gui
+PROJECT_DIR = env.str("PROJECT_DIR", default=os.path.dirname(os.path.abspath(__file__)))
+
 # /opt/django-hello-world/run
 RUN_DIR = env.str("RUN_DIR", default=os.path.join(SITE_DIR, "run"))
 
@@ -108,7 +111,8 @@ STATICFILES_FINDERS = [
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(PROJECT_NAME, "/templates")],
+        "APP_DIRS": True,
+        "DIRS": [os.path.join(PROJECT_DIR, "templates")],
         "OPTIONS": {
             "context_processors": [
                 "django.contrib.auth.context_processors.auth",
@@ -119,11 +123,6 @@ TEMPLATES = [
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
                 "django.template.context_processors.request",
-            ],
-            "loaders": [
-                "django.template.loaders.filesystem.Loader",
-                "django.template.loaders.app_directories.Loader",
-                "apptemplates.Loader",
             ],
             "debug": DEBUG,
         },

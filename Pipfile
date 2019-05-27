@@ -6,7 +6,6 @@ verify_ssl = true
 [packages]
 django = "*"
 django-admin-sortable2 = "*"
-django-apptemplates = "*"
 django-createuser = "*"
 django-database-for-apps = "*"
 django-environ = "*"
