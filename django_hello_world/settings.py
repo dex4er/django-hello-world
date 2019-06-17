@@ -89,7 +89,7 @@ SITE_DIR = env.str(
     ),
 )
 
-# /opt/mta-gui/lib/python*/site-packages/mta_gui
+# /opt/django-hello-world/lib/python*/site-packages/django_hello_world
 PROJECT_DIR = env.str("PROJECT_DIR", default=os.path.dirname(os.path.abspath(__file__)))
 
 # /opt/django-hello-world/run
