@@ -33,6 +33,7 @@ TIME_ZONE="GMT"
 # Static files (CSS, JavaScript, Images)
 STATIC_URL="/static/"
 # STATIC_ROOT="/opt/django-hello-world/run/static"
+# STATICFILES_STORAGE="whitenoise.storage.CompressedStaticFilesStorage"
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.

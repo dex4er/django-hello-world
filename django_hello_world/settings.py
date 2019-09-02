@@ -50,6 +50,7 @@ INSTALLED_APPS = EXTRA_BASE_APPS + BASE_APPS + PROJECT_APPS + LOCAL_APPS
 # Middleware definition
 BASE_MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -99,7 +100,7 @@ RUN_DIR = env.str("RUN_DIR", default=os.path.join(SITE_DIR, "run"))
 STATIC_URL = env.str("STATIC_URL", default="/static/")
 
 # /opt/django-hello-world/run/static
-STATIC_ROOT = env.str("STATIC_ROOT", os.path.join(RUN_DIR, "static"))
+STATIC_ROOT = env.str("STATIC_ROOT", default=os.path.join(RUN_DIR, "static"))
 
 STATICFILES_DIRS = []
 
@@ -107,6 +108,10 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
     "django.contrib.staticfiles.finders.FileSystemFinder",
 ]
+
+STATICFILES_STORAGE = env.str(
+    "STATICFILES_STORAGE", default="whitenoise.storage.CompressedStaticFilesStorage"
+)
 
 TEMPLATES = [
     {

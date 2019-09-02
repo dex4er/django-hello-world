@@ -18,6 +18,7 @@ django-werkzeug-debugger-runserver = "*"
 djangorestframework = "*"
 natural-keys = "*"
 pyyaml = "*"
+whitenoise = {extras = ["brotli"],version = "*"}
 
 [dev-packages]
 bandit = "*"
