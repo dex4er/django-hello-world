@@ -9,6 +9,8 @@ matrix:
 
     - python: "3.6"
 
+    - python: "pypy3"
+
 env:
   global:
     - PIPENV_VERBOSITY=-1

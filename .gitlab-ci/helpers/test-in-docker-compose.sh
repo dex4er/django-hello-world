@@ -4,6 +4,8 @@ cd $(dirname $0)/../..
 . .gitlab-ci/before/environ.sh
 . .gitlab-ci/before/apt.sh
 . .gitlab-ci/before/python.sh
+. .gitlab-ci/before/pypy3.sh
+. .gitlab-ci/before/libxml2.sh
 . .gitlab-ci/before/pipenv.sh
 
 # make:venv

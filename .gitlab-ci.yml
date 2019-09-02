@@ -25,6 +25,8 @@ make:venv:
     - . .gitlab-ci/before/environ.sh
     - . .gitlab-ci/before/apt.sh
     - . .gitlab-ci/before/python.sh
+    - . .gitlab-ci/before/pypy3.sh
+    - . .gitlab-ci/before/libxml2.sh
     - . .gitlab-ci/before/pipenv.sh
   script:
     - . .gitlab-ci/make-venv.sh
@@ -41,6 +43,8 @@ test:app:
     - . .gitlab-ci/before/environ.sh
     - . .gitlab-ci/before/apt.sh
     - . .gitlab-ci/before/python.sh
+    - . .gitlab-ci/before/pypy3.sh
+    - . .gitlab-ci/before/libxml2.sh
     - . .gitlab-ci/before/pipenv.sh
   script:
     - . .gitlab-ci/test-app.sh
@@ -53,6 +57,8 @@ make:packages:develop:
     - . .gitlab-ci/before/environ.sh
     - . .gitlab-ci/before/apt.sh
     - . .gitlab-ci/before/python.sh
+    - . .gitlab-ci/before/pypy3.sh
+    - . .gitlab-ci/before/libxml2.sh
     - . .gitlab-ci/before/pipenv.sh
   script:
     - . .gitlab-ci/make-packages.sh
@@ -69,6 +75,8 @@ test:packages:develop:
     - . .gitlab-ci/before/environ.sh
     - . .gitlab-ci/before/apt.sh
     - . .gitlab-ci/before/python.sh
+    - . .gitlab-ci/before/pypy3.sh
+    - . .gitlab-ci/before/libxml2.sh
   script:
     - . .gitlab-ci/test-packages.sh
   only:
