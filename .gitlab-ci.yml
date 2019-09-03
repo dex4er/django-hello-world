@@ -1,8 +1,9 @@
 image: ubuntu:bionic
 
-cache:
+cache: &global_cache
   paths:
     - .cache/
+  policy: pull
 
 stages:
   - make:venv
@@ -38,6 +39,9 @@ make:venv:
     - . .gitlab-ci/make-venv.sh
   except:
     - tags
+  cache:
+    <<: *global_cache
+    policy: pull-push
   artifacts:
     paths:
       - .venv/
@@ -56,6 +60,9 @@ test:app:
     - . .gitlab-ci/test-app.sh
   except:
     - tags
+  cache:
+    <<: *global_cache
+    policy: pull-push
 
 make:packages:develop:
   stage: make:packages:develop
