@@ -1,5 +1,7 @@
 cd $(dirname $0)/../..
 
+rm -rf .packages .venv .venv-packages .venv-wheels .wheels
+
 # before_script
 . .gitlab-ci/before/environ.sh
 . .gitlab-ci/before/apt.sh
@@ -19,5 +21,11 @@ cd $(dirname $0)/../..
 
 # test:packages:develop:
 . .gitlab-ci/test-packages.sh
+
+# make:wheels:develop
+. .gitlab-ci/make-wheels.sh
+
+# test:wheels:develop:
+. .gitlab-ci/test-wheels.sh
 
 exit 0

@@ -20,6 +20,6 @@ export SOURCE_DATE_EPOCH=315532800
 pipenv run python setup.py sdist bdist_wheel
 
 python3 -c 'import configparser;c=configparser.ConfigParser();c.read("setup.cfg");print(c["metadata"]["name"])' > .packages/dist-requirements.txt
-$find dist -maxdepth 1 -name '*.whl' -printf "%P\n" | sort | tail -n1 > .packages/dist-packages.txt
+$find dist -maxdepth 1 -name '*.tar.gz' -printf "%P\n" | sort | tail -n1 > .packages/dist-packages.txt
 
-cp -f dist/*.whl .packages
+cp -f dist/*.tar.gz .packages

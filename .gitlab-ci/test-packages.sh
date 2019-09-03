@@ -1,19 +1,20 @@
 app_script="django-hello-world"
 
-virtualenv --python=python3 --clear --no-download .venv2
+mkdir -p .venv-packages
+rm -rf .venv-packages/* .venv-packages/.??*
 
-. .venv2/bin/activate
+virtualenv --python=pypy3 --no-download .venv-packages
+
+. .venv-packages/bin/activate
 
 cd .packages
-    pip install --no-index --find-links $(pwd) -r packages.txt -r dist-packages.txt
+    pip install --no-index --find-links $(pwd) -r dev-packages.txt
 cd -
 
 cp -f .env.example.sh .env
 
+pipenv run python setup.py sdist bdist_wheel
+
 export READ_ENV=.env
 
-for db in default django; do
-    $app_script migrate --force-color --database $db
-done
-
-$app_script check
+pipenv run python manage.py check

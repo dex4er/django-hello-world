@@ -12,6 +12,7 @@ exclude = '''
     | \.tox
     | \.venv.*
     | \.virtualenv.*
+    | \.wheels
     | _build
     | build
     | dist

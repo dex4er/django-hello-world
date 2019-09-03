@@ -65,7 +65,7 @@ Installing
 .. code:: sh
 
   pipenv run ./setup.py bdist_wheel
-  virtualenv -ppython3 /opt/django-hello-world
+  virtualenv -ppypy3 /opt/django-hello-world
   bash --rcfile /opt/django-hello-world/bin/activate
   pip install dist/django_hello_world-*.whl
 
@@ -250,7 +250,7 @@ Initialization for artifacts repository was:
 .. code:: sh
 
   git init
-  git remote add origin $GIT_REPO_PACKAGES_URL
+  git remote add origin $GIT_REPO_WHEELS_URL
   git checkout -b develop
   git lfs install
   git lfs track "*.gz"
@@ -272,10 +272,10 @@ Artifacts repository allows to install all packages in offline mode.
 
 .. code:: sh
 
-  git clone $GIT_REPO_PACKAGES_URL .packages
-  virtualenv -ppython3 /opt/django-hello-world
+  git clone $GIT_REPO_WHEELS_URL .wheels
+  virtualenv -ppypy3 /opt/django-hello-world
   bash --rcfile /opt/django-hello-world/bin/activate
-  pip install --no-index --find-links .packages --upgrade --requirement dist-requirements.txt
+  pip install --no-index --find-links .wheels -U -r .wheels/packages.txt -r .wheels/dist-packages.txt
 
 Testing
 ^^^^^^^

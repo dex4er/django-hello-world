@@ -9,14 +9,20 @@ stages:
   - test:app
   - make:packages:develop
   - test:packages:develop
+  - make:wheels:develop
+  - test:wheels:develop
   - export:packages:develop
+  - export:wheels:develop
   - merge:packages:master
+  - merge:wheels:master
   - tag:packages:master
+  - tag:wheels:master
   - tag:app:master
 
 variables:
   GIT_REPO_APP_URL: git@gitlab.com:dex4er/django-hello-world.git
   GIT_REPO_PACKAGES_URL: git@gitlab.com:dex4er/django-hello-world-packages.git
+  GIT_REPO_WHEELS_URL: git@gitlab.com:dex4er/django-hello-world-wheels.git
   VERSION_FROM: django_hello_world/__init__.py
 
 make:venv:
@@ -82,6 +88,37 @@ test:packages:develop:
   only:
     - develop
 
+make:wheels:develop:
+  stage: make:wheels:develop
+  before_script:
+    - . .gitlab-ci/before/environ.sh
+    - . .gitlab-ci/before/apt.sh
+    - . .gitlab-ci/before/python.sh
+    - . .gitlab-ci/before/pypy3.sh
+    - . .gitlab-ci/before/libxml2.sh
+    - . .gitlab-ci/before/pipenv.sh
+  script:
+    - . .gitlab-ci/make-wheels.sh
+  only:
+    - develop
+  artifacts:
+    paths:
+      - .wheels/
+    expire_in: 1 week
+
+test:wheels:develop:
+  stage: test:wheels:develop
+  before_script:
+    - . .gitlab-ci/before/environ.sh
+    - . .gitlab-ci/before/apt.sh
+    - . .gitlab-ci/before/python.sh
+    - . .gitlab-ci/before/pypy3.sh
+    - . .gitlab-ci/before/libxml2.sh
+  script:
+    - . .gitlab-ci/test-wheels.sh
+  only:
+    - develop
+
 export:packages:develop:
   stage: export:packages:develop
   before_script:
@@ -96,6 +133,21 @@ export:packages:develop:
   variables:
     ARTIFACTS_PATH: .packages/
     GIT_REPO_URL: $GIT_REPO_PACKAGES_URL
+
+export:wheels:develop:
+  stage: export:wheels:develop
+  before_script:
+    - . .gitlab-ci/before/environ.sh
+    - . .gitlab-ci/before/apt.sh
+    - . .gitlab-ci/before/git.sh
+    - . .gitlab-ci/before/ssh-private-key.sh
+  script:
+    - . .gitlab-ci/export.sh
+  only:
+    - develop
+  variables:
+    ARTIFACTS_PATH: .wheels/
+    GIT_REPO_URL: $GIT_REPO_WHEELS_URL
 
 merge:packages:master:
   stage: merge:packages:master
@@ -112,6 +164,21 @@ merge:packages:master:
     GIT_MERGE_FROM: develop
     GIT_REPO_URL: $GIT_REPO_PACKAGES_URL
 
+merge:wheels:master:
+  stage: merge:wheels:master
+  before_script:
+    - . .gitlab-ci/before/environ.sh
+    - . .gitlab-ci/before/apt.sh
+    - . .gitlab-ci/before/git.sh
+    - . .gitlab-ci/before/ssh-private-key.sh
+  script:
+    - . .gitlab-ci/merge.sh
+  only:
+    - master
+  variables:
+    GIT_MERGE_FROM: develop
+    GIT_REPO_URL: $GIT_REPO_WHEELS_URL
+
 tag:packages:master:
   stage: tag:packages:master
   before_script:
@@ -125,6 +192,20 @@ tag:packages:master:
     - master
   variables:
     GIT_REPO_URL: $GIT_REPO_PACKAGES_URL
+
+tag:wheels:master:
+  stage: tag:wheels:master
+  before_script:
+    - . .gitlab-ci/before/environ.sh
+    - . .gitlab-ci/before/apt.sh
+    - . .gitlab-ci/before/git.sh
+    - . .gitlab-ci/before/ssh-private-key.sh
+  script:
+    - . .gitlab-ci/tag.sh
+  only:
+    - master
+  variables:
+    GIT_REPO_URL: $GIT_REPO_WHEELS_URL
 
 tag:app:master:
   stage: tag:app:master

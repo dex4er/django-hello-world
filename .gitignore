@@ -27,5 +27,6 @@ __pycache__
 /.venv*
 /.virtualenv*
 /.vscode
+/.wheels
 
 .DS_Store
