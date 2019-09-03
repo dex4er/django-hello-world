@@ -8,7 +8,7 @@ virtualenv --python=pypy3 --no-download .venv-wheels
 . .venv-wheels/bin/activate
 
 cd .wheels
-    pip install --no-index --find-links $(pwd) -r packages.txt -r dist-packages.txt
+    pip install --no-index --find-links $(pwd) -r wheels.txt -r dist-wheels.txt
 cd -
 
 cp -f .env.example.sh .env

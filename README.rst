@@ -237,12 +237,13 @@ private SSH deployment key stored in ``SSH_PRIVATE_KEY`` variable.
 This repository has changed the default branch to ``develop`` and enabled SSH
 deployment key with read-write access.
 
-Artifacts repository
-^^^^^^^^^^^^^^^^^^^^
+Artifacts repositories
+^^^^^^^^^^^^^^^^^^^^^^
 
-Artifacts are stored in separate Git repository with git-lfs support.
+Artifacts are stored in separate Git repositories with git-lfs support:
+separate for source packages and binary wheels.
 
-Artifacts repository uses the same layout as a main app repository
+Artifacts repositories use the same layout as a main app repository
 (``develop``, ``master``, tags).
 
 Initialization for artifacts repository was:
@@ -250,7 +251,7 @@ Initialization for artifacts repository was:
 .. code:: sh
 
   git init
-  git remote add origin $GIT_REPO_WHEELS_URL
+  git remote add origin $GIT_REPO_PACKAGES_URL # and $GIT_REPO_WHEELS_URL
   git checkout -b develop
   git lfs install
   git lfs track "*.gz"
@@ -262,20 +263,20 @@ Initialization for artifacts repository was:
 
 Then the default branch was changed to ``develop``.
 
-This repository has disabled CI pipelines and enabled SSH deployment key with
+The repositories have disabled CI pipelines and enabled SSH deployment key with
 read-write access.
 
 Offline installation
 ^^^^^^^^^^^^^^^^^^^^
 
-Artifacts repository allows to install all packages in offline mode.
+Artifacts repository allows to install all wheels in offline mode.
 
 .. code:: sh
 
   git clone $GIT_REPO_WHEELS_URL .wheels
   virtualenv -ppypy3 /opt/django-hello-world
   bash --rcfile /opt/django-hello-world/bin/activate
-  pip install --no-index --find-links .wheels -U -r .wheels/packages.txt -r .wheels/dist-packages.txt
+  pip install --no-index --find-links .wheels -U -r .wheels/wheels.txt -r .wheels/dist-wheels.txt
 
 Testing
 ^^^^^^^
