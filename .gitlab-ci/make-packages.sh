@@ -17,7 +17,7 @@ $find .packages -maxdepth 1 -regextype egrep -regex '.*\.(gz|whl|zip)' -printf "
 
 export SOURCE_DATE_EPOCH=315532800
 
-pipenv run python setup.py sdist bdist_wheel
+pipenv run python setup.py sdist
 
 python3 -c 'import configparser;c=configparser.ConfigParser();c.read("setup.cfg");print(c["metadata"]["name"])' > .packages/dist-requirements.txt
 $find dist -maxdepth 1 -name '*.tar.gz' -printf "%P\n" | sort | tail -n1 > .packages/dist-packages.txt

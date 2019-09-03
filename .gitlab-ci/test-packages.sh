@@ -1,5 +1,3 @@
-app_script="django-hello-world"
-
 mkdir -p .venv-packages
 rm -rf .venv-packages/* .venv-packages/.??*
 

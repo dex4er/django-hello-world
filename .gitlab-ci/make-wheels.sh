@@ -12,7 +12,7 @@ $find .wheels -maxdepth 1 -regextype egrep -regex '.*\.whl' -printf "%P\n" | sor
 
 export SOURCE_DATE_EPOCH=315532800
 
-pipenv run python setup.py sdist bdist_wheel
+pipenv run python setup.py bdist_wheel
 
 python3 -c 'import configparser;c=configparser.ConfigParser();c.read("setup.cfg");print(c["metadata"]["name"])' > .wheels/dist-requirements.txt
 $find dist -maxdepth 1 -name '*.whl' -printf "%P\n" | sort | tail -n1 > .wheels/dist-wheels.txt
