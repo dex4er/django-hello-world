@@ -13,8 +13,8 @@ cd -
 
 cp -f .env.example.sh .env
 
-pipenv run python setup.py sdist bdist_wheel
+python setup.py sdist bdist_wheel
 
 export READ_ENV=.env
 
-pipenv run python manage.py check
+python manage.py check
