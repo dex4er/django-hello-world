@@ -6,7 +6,7 @@ version: "3"
 
 services:
   test:
-    image: ubuntu:bionic
+    image: ubuntu:jammy
     environment:
       VERSION_FROM: django_hello_world/__init__.py
     volumes:
